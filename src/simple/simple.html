@@ -1,0 +1,46 @@
+<template>
+   <require from="components/messages"></require>
+   <div class="menu-content-container" style="border-top:0px">
+      
+      <div class="container container-board">
+  <section class="au-animate">
+   
+        <messages></messages>
+        <div class="filter-panel">
+            <div class="row">
+              <div class="col-sm-8 col-xs-12">
+                  <!-- Page title -->
+                  <h1 class="page-title">Simple</h1>
+              </div>
+            </div>
+            <div class="row page-content">
+              <!-- Page content -->
+              <h2>Description</h2>
+              <p>This is a simple ceres module. No second level menus, No left hand menus.</p>
+
+              <h2>Test messenger service</h2>
+              <button click.delegate="showWarn()">show warning</button>
+               <button click.delegate="showInfo()">show info</button>
+                <button click.delegate="showSuccess()">show success</button>
+                <button click.delegate="showError()">show error</button>
+            <div class="row page-content">
+                <!-- Page content -->
+                
+                <h2>Table</h2>
+                 <datatable 
+      
+      columns="id,name as 'username'"
+
+      footer.bind="footer"
+      data.bind="data"
+  ></datatable>
+            </div>
+
+            
+        </div>
+    </div>
+   
+  </section>
+  </div>
+   </div>
+</template>

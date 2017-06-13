@@ -1,0 +1,26 @@
+<template>
+  <require from="components/blur-image"></require>
+ <div class="menu-content-container" style="border-top:0px">
+      
+      <div class="container container-board">
+  <section class="au-animate">
+      <h1 class="page-title">${heading}</h1>
+      <div class="row au-stagger">
+        <div class="col-sm-6 col-md-3 card-container au-animate" repeat.for="user of users">
+            <div class="card">
+                <canvas class="header-bg" width="250" height="70" blur-image.bind="image"></canvas>
+                <div class="avatar">
+                    <img src.bind="user.avatar_url" crossorigin ref="image"/>
+                </div>
+                <div class="content">
+                    <p class="name">${user.login}</p>
+                    <p><a target="_blank" class="btn btn-default" href.bind="user.html_url">Contact</a></p>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+  </section>
+  </div>
+      </div>
+</template>

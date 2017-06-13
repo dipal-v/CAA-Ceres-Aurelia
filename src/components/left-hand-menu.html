@@ -1,0 +1,7 @@
+<template bindable="router"> 
+    <ul class="nav">
+            <li repeat.for="row of router.navigation" class="${row.isActive ? 'menu-item-content active' : 'menu-item-content'}">
+                <a href.bind="row.href">${row.title}</a>
+            </li>
+    </ul>
+</template>

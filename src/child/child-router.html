@@ -1,0 +1,23 @@
+<template>
+  <require from="components/left-hand-menu.html"></require>
+  <require from="components/sub-menu.html"></require>
+  <sub-menu router.bind="router"></sub-menu>
+    <div class="menu-content-container" style="border-top:0px">
+      
+      <div class="container container-board">
+          <section class="au-animate">
+
+            <h1 class="page-title">${heading}</h1>
+            <div>
+              <div class="col-md-2">
+                <left-hand-menu router.bind="router"></left-hand-menu>
+              </div>
+              <div class="col-md-10" style="padding: 0">
+                <router-view></router-view>
+              </div>
+            </div>
+     
+  </section>
+   </div>
+    </div>
+</template>
