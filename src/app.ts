@@ -14,7 +14,7 @@ export class App {
       { route: ['', 'welcome'], name: 'welcome',      moduleId: 'welcome/welcome',      nav: true, title: 'Welcome' },
       { route: 'simple', name: 'simple',      moduleId: 'simple/simple',      nav: true, title: 'Simple' },
       { route: 'users',         name: 'users',        moduleId: 'users/users',        nav: true, title: 'Github Users' },
-      { route: 'child-router',  name: 'child-router', moduleId: 'child/child-router', nav: this.authorizationService.isAuthorized('ViewChildRouter'), title: 'Child Router', settings: {
+      { route: 'child-router',  name: 'child-router', moduleId: 'child/child-router', nav: true, title: 'Child Router', settings: {
           permission: {
             only: ['ViewChildRouter']
           }
