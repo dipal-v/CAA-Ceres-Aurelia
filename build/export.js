@@ -11,7 +11,14 @@ module.exports = {
     'jspm_packages/system.js',
     'jspm_packages/system-polyfills.js',
     'jspm_packages/system-csp-production.js',
-    'styles/styles.css'
+    'styles/main.css',
+    'images/**',
+    'fonts/icomoon.woff',
+    'fonts/icomoon.ttf',
+    'jspm_packages/npm/aurelia-permission@0.5.0.js',
+    'jspm_packages/npm/aurelia-permission@0.5.0/*',
+    'jspm_packages/github/systemjs/**',
+    'jspm_packages/npm/aurelia-pager@0.1.1/**'
   ],
   // this section lists any jspm packages that have
   // unbundled resources that need to be exported.
@@ -33,6 +40,10 @@ module.exports = {
     ], [
       'bluebird', [
         '/js/browser/bluebird.min.js'
+      ]
+    ],  [
+      'aurelia-permision', [
+        '/*'
       ]
     ]
   ]

@@ -35,6 +35,8 @@ module.exports = {
         "aurelia-datatable",
         "[aurelia-datatable/**/*.js]",
         "aurelia-datatable/**/*.html!text",
+        "aurelia-pager",
+        "moment"
       ],
       "options": {
         "inject": true,

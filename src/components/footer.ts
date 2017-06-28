@@ -10,7 +10,7 @@ export class Footer {
   constructor() {
         this.OnScroll = e => {
             this.pixelsScrolled = window.scrollY;
-            console.log( this.pixelsScrolled);
+            
         };
     }
 
