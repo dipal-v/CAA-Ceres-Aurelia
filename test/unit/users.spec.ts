@@ -1,4 +1,5 @@
 import {Users} from 'src/users/users';
+import {UserService} from 'src/services/user-service';
 import {HttpClient} from 'aurelia-fetch-client';
 
 class HttpStub {
@@ -21,7 +22,8 @@ describe('the Users module', () => {
 
   it('sets fetch response to users', (done) => {
     var http = createHttpStub(),
-        sut = new Users(<HttpClient>http),
+	    userservice = new UserService(http),
+        sut = new Users(userservice),
         itemStubs = [1],
         itemFake = [2];
         

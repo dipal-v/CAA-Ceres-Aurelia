@@ -29,14 +29,30 @@ describe('the Child Router module', () => {
   });
 
   it('should have a welcome route', () => {
-    expect(sut.router.routes).toContain({ route: ['','welcome'], name: 'welcome',  moduleId: 'welcome', nav: true, title:'Welcome' });
+    expect(sut.router.routes).toContain(
+		{ route: ['','child1'],
+		  name: 'child1',
+		  moduleId: 'child/child1',
+		  nav: true,
+		  title: 'Child One' }
+  		  );
   });
 
   it('should have a users route', () => {
-     expect(sut.router.routes).toContain({ route: 'users', name: 'users', moduleId: 'users', nav: true, title:'Github Users' });
+     expect(sut.router.routes).toContain(
+	       { route: 'child2',
+		   name: 'child2',
+		   moduleId: 'child/child2',
+		   nav: true,
+		   title: 'Child Two' });
   });
 
   it('should have a child router route', () => {
-    expect(sut.router.routes).toContain({ route: 'child-router', name: 'child-router', moduleId: 'child-router', nav: true, title:'Child Router' });
+    expect(sut.router.routes).toContain(
+		  { route: 'child3',
+		  name: 'child3',
+		  moduleId: 'child/child3',
+		  nav: true,
+		  title: 'Child Three' });
   });
 });

@@ -30,12 +30,16 @@ describe('the App module', () => {
   });
 
   it('should have a welcome route', () => {
-    expect(sut.router.routes).toContain({ route: ['','welcome'], name: 'welcome',  moduleId: 'welcome', nav: true, title:'Welcome' });
+    expect(sut.router.routes).toContain(
+		{route: [ '', 'welcome' ],
+		name: 'welcome', moduleId: 'welcome/welcome', nav: true, title: 'Welcome' }
+	);
   });
 
   it('should have a users route', () => {
-     expect(sut.router.routes).toContain({ route: 'users', name: 'users', moduleId: 'users', nav: true, title:'Github Users' });
-  });
+     expect(sut.router.routes).toContain(
+	 { route: 'users', name: 'users', moduleId: 'users/users', nav: true, title: 'Github Users' }
+	 );
 
   it('should have a child router route', () => {
     expect(sut.router.routes).toContain({ route: 'child-router', name: 'child-router', moduleId: 'child-router', nav: true, title:'Child Router' });
