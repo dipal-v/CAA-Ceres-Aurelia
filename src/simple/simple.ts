@@ -1,12 +1,16 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
 import { inject } from 'aurelia-framework';
 import { Messenger} from '../services/messenger';
+import {GridOptions} from 'ag-grid';
 
 @inject(EventAggregator)
 export class Simple {
   public data = [{id: 1, name: 'Pipo'}, {id: 2, name: 'Mario'}];
   private ea: EventAggregator;
   private messenger: Messenger;
+
+  private rowData: any[];
+  private columnDefs: any[];
 
 
   // Getters can't be directly observed, so they must be dirty checked.

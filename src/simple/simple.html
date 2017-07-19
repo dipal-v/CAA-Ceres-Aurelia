@@ -33,7 +33,13 @@
 
       footer.bind="footer"
       data.bind="data"
-  ></datatable>
+				   ></datatable>
+				 <ag-grid-aurelia #agGrid class="ag-fresh"
+								  grid-options.bind="gridOptions"
+								  row-data.bind="data">
+				   <ag-grid-column header-name='ID' field='id'></ag-grid-column>
+				   <ag-grid-column header-name='User Name' field='name'></ag-grid-column>
+				 </ag-grid-aurelia>
             </div>
 
             
