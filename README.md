@@ -234,6 +234,25 @@ A gulp task has been added to do export and tar ball in one go:
 You will get ```caa-ceres-aurelia-1.0.0.tar.gz``` in your current folder. And the tar 
 ball name is derived from package.json: package_name-package_version.tar.gz .
 
+## Run it inside a Docker container
+
+Please go through installing docker page here: https://docs.docker.com/get-started/
+
+Then come back to run these commands:
+
+   ```shell
+      sudo docker build -t ceres .
+   ```
+
+Above command builds the container. And then run it :)
+
+   ```shell
+      sudo docker run -p 9000:80 ceres
+   ```
+
+Then refresh your local browser. You would see it in action. What's more, you will
+also see access log at your console output.
+
 #### Configuration
 The configuration is done by ```bundles.js``` file.
 In addition, ```export.js``` file is available for including individual files.
