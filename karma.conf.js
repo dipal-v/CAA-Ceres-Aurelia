@@ -1,9 +1,27 @@
+var fs  = require("fs");
+
+function filter(configJs){
+    var output = './out.' + configJs;
+    if (fs.existsSync(output)){
+        fs.unlink(output);
+    }
+    fs.readFileSync(configJs).toString().split('\n').forEach(function (line) {
+        if(line.indexOf('"*": "./dist/*"') == -1){
+            fs.appendFileSync(output, line.toString() + "\n");
+        }else{
+            console.log(line);
+        }
+    });
+    return output;
+}
+
 module.exports = function(config) {
-  config.set({
+    var new_config = filter('config.js');
+    config.set({
     basePath: './',
     frameworks: ['systemjs', 'jasmine'],
     systemjs: {
-      configFile: 'config.js',
+    configFile: new_config,
       config: {
         paths: {
           "typescript": "node_modules/typescript/lib/typescript.js",
@@ -46,4 +64,5 @@ module.exports = function(config) {
     browsers: ['Chrome'],
     singleRun: true
   });
+
 };
