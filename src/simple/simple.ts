@@ -11,7 +11,7 @@ export class Simple {
 
   private rowData: any[];
   private columnDefs: any[];
-
+  private gridOptions: GridOptions;
 
   // Getters can't be directly observed, so they must be dirty checked.
   // However, if you tell Aurelia the dependencies, it no longer needs to dirty check the property.
@@ -22,6 +22,8 @@ export class Simple {
 
         this.ea = EventAggregator;
         this.messenger = new Messenger(this.ea);
+		this.gridOptions = <GridOptions>{}
+		this.gridOptions.rowData = this.createRowData();
     }
 
 
@@ -36,6 +38,97 @@ export class Simple {
   }
   public showError () {
       this.messenger.error('Error: This is a error message for the user!');
+  }
+
+  private createRowData(){
+      return [
+                    {
+                        "id": 1449,
+                        "name": "uibot1-i8po2nuj06617cb873e9agku",
+                        "status": "Complete",
+                        "created": "2015-04-20T08:58:48Z",
+                        "submitted": "2015-04-20T08:58:50Z",
+                        "updated": "2015-04-20T08:58:51Z",
+                        "restrictions":{"restriction":[{"description":"Location Restriction China Only: China"}]},
+                        "voucherNumber": "2540109178000001"
+                    },
+                    {
+                        "id": 1444,
+                        "name": "uibot2-i8po2fyz06617cb873atks4b",
+                        "status": "Cancelled",
+                        "created": "2015-04-20T08:58:38Z",
+                        "updated": "2015-04-20T08:58:39Z",
+                        "voucherNumber" : "2000109178002101"
+                    },
+                    {
+                        "id": 1447,
+                        "name": "uibot3-i8po133006617cb8734vpkpb",
+                        "status": "Cancelled",
+                        "created": "2015-04-20T08:57:37Z",
+                        "submitted": "2015-04-20T08:57:39Z",
+                        "updated": "2015-04-20T08:57:55Z",
+                        "voucherNumber": "2000109178000001"
+                    },
+                    {
+                        "id": 1441,
+                        "name": "uibot4-i8po0jtg06617cb8735eq07p",
+                        "status": "Complete",
+                        "created": "2015-04-20T08:57:12Z",
+                        "submitted": "2015-04-20T08:57:13Z",
+                        "updated": "2015-04-20T08:57:15Z",
+                        "voucherNumber": "2000109348000001"
+                    },
+                    {
+                        "id": 1443,
+                        "name": "uibot5-i8po00u706617cb873c32g9n",
+                        "status": "Complete",
+                        "created": "2015-04-20T08:56:47Z",
+                        "submitted": "2015-04-20T08:56:49Z",
+                        "updated": "2015-04-20T08:56:50Z",
+                        "voucherNumber": "20001091780056701"
+                    },
+                    {
+                        "id": 1448,
+                        "name": "uibot6-i8pnzfcm06617cb873ekq3ki",
+                        "status": "Complete",
+                        "created": "2015-04-20T08:56:20Z",
+                        "submitted": "2015-04-20T08:56:23Z",
+                        "updated": "2015-04-20T08:56:25Z"
+                    },
+                    {
+                        "id": 1445,
+                        "name": "uibot7-i8le52jw0d787cb87362taqr",
+                        "status": "Complete",
+                        "created": "2015-04-17T09:03:15Z",
+                        "submitted": "2015-04-17T09:03:17Z",
+                        "updated": "2015-04-17T09:03:17Z"
+                    },
+                    {
+                        "id": 1440,
+                        "name": "uibot8-i8le2oak0d787cb8739it24j",
+                        "status": "Cancelled",
+                        "created": "2015-04-17T09:01:25Z",
+                        "submitted": "2015-04-17T09:01:27Z",
+                        "updated": "2015-04-17T09:01:43Z"
+                    },
+                    {
+                        "id": 1446,
+                        "name": "uibot9-i8le24ix0d787cb873fto5op",
+                        "status": "Complete",
+                        "created": "2015-04-17T09:01:00Z",
+                        "submitted": "2015-04-17T09:01:02Z",
+                        "updated": "2015-04-17T09:01:03Z"
+                    },
+                    {
+                        "id": 1442,
+                        "name": "uibot0-i8le1ljz0d787cb87364uc4x",
+                        "status": "Pending",
+                        "created": "2015-04-17T09:00:35Z",
+                        "submitted": "2015-04-17T09:00:37Z",
+                        "updated": "2015-04-17T09:00:38Z",
+                        "restrictions":{"restriction":[{"description":"Location Restriction China Only: China"}]}
+                    }
+                ];
   }
 
   }
