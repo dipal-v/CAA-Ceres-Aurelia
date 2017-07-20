@@ -223,6 +223,17 @@ To start the exported app, execute the following command:
     gulp serve-export
   ```
 
+## Make a tar.gz on top of exporting task
+
+A gulp task has been added to do export and tar ball in one go:
+
+  ```shell
+     gulp distribute
+  ```
+
+You will get ```caa-ceres-aurelia-1.0.0.tar.gz``` in your current folder. And the tar 
+ball name is derived from package.json: package_name-package_version.tar.gz .
+
 #### Configuration
 The configuration is done by ```bundles.js``` file.
 In addition, ```export.js``` file is available for including individual files.
