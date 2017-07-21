@@ -93,6 +93,7 @@
     "devDependencies": {}
   },
   "dependencies": {
+    "ag-grid": "^11.0.0",
     "aurelia-permission": "^0.5.0",
     "bootstrap-sass": "^3.3.7",
     "gulp-sass": "^3.1.0",
