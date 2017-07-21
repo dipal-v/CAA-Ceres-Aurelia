@@ -63,7 +63,7 @@ export class Simple {
                     {
                         "id": 1447,
                         "name": "uibot3-i8po133006617cb8734vpkpb",
-                        "status": "Cancelled",
+                        "status": "Created",
                         "created": "2015-04-20T08:57:37Z",
                         "submitted": "2015-04-20T08:57:39Z",
                         "updated": "2015-04-20T08:57:55Z",
@@ -72,7 +72,7 @@ export class Simple {
                     {
                         "id": 1441,
                         "name": "uibot4-i8po0jtg06617cb8735eq07p",
-                        "status": "Complete",
+                        "status": "Active",
                         "created": "2015-04-20T08:57:12Z",
                         "submitted": "2015-04-20T08:57:13Z",
                         "updated": "2015-04-20T08:57:15Z",
@@ -81,7 +81,7 @@ export class Simple {
                     {
                         "id": 1443,
                         "name": "uibot5-i8po00u706617cb873c32g9n",
-                        "status": "Complete",
+                        "status": "Failed",
                         "created": "2015-04-20T08:56:47Z",
                         "submitted": "2015-04-20T08:56:49Z",
                         "updated": "2015-04-20T08:56:50Z",
@@ -90,7 +90,7 @@ export class Simple {
                     {
                         "id": 1448,
                         "name": "uibot6-i8pnzfcm06617cb873ekq3ki",
-                        "status": "Complete",
+                        "status": "In Progress",
                         "created": "2015-04-20T08:56:20Z",
                         "submitted": "2015-04-20T08:56:23Z",
                         "updated": "2015-04-20T08:56:25Z"
@@ -98,7 +98,7 @@ export class Simple {
                     {
                         "id": 1445,
                         "name": "uibot7-i8le52jw0d787cb87362taqr",
-                        "status": "Complete",
+                        "status": "Expired",
                         "created": "2015-04-17T09:03:15Z",
                         "submitted": "2015-04-17T09:03:17Z",
                         "updated": "2015-04-17T09:03:17Z"
@@ -106,7 +106,7 @@ export class Simple {
                     {
                         "id": 1440,
                         "name": "uibot8-i8le2oak0d787cb8739it24j",
-                        "status": "Cancelled",
+                        "status": "Redeemed",
                         "created": "2015-04-17T09:01:25Z",
                         "submitted": "2015-04-17T09:01:27Z",
                         "updated": "2015-04-17T09:01:43Z"
