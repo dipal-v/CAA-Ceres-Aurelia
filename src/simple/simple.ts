@@ -32,6 +32,8 @@ export class Simple {
     this.gridOptions.onGridReady = () => {
         this.gridApi = this.gridOptions.api;
         this.gridApi.sizeColumnsToFit();
+        this.gridApi.addEventListener('cellClicked', this.onRestrictionClicked);
+        this.gridApi.addEventListener('cellDoubleClicked', this.onStatusDbClicked);
     }
     this.gridOptions.enableSorting = true;
     this.gridOptions.enableFilter = true;
@@ -39,6 +41,17 @@ export class Simple {
     //this.gridOptions.columnDefs = this.createColumnDefs();
     }
 
+  onRestrictionClicked(event){
+    if (event.column.colId == 'restrictions' && event.data.restrictions){
+      alert("single clicked " + event.data.restrictions.restriction[0].description);
+    }
+  }
+
+  onStatusDbClicked(event) {
+    if (event.column.colId == 'status'){
+      alert("double clicked " + event.data.status);
+    }  
+  }
 
   public showWarn () {
       this.messenger.warn('Warning: This is a warning for the user!');

@@ -49,6 +49,11 @@
                        <status data="${params.value}"></status>
                      </ag-cell-template>
                    </ag-grid-column>
+				   <ag-grid-column header-name='Restrictions' field='restrictions'>
+                     <ag-cell-template>
+                       <a if.bind='params.value'>restriction <span class="badge">${params.value.restriction.length}</span></a>
+                     </ag-cell-template>
+                   </ag-grid-column>
 				 </ag-grid-aurelia>
 			  </div>
 			</div>
