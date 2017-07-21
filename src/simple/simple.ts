@@ -34,6 +34,7 @@ export class Simple {
         this.gridApi.sizeColumnsToFit();
     }
     this.gridOptions.enableSorting = true;
+    this.gridOptions.enableFilter = true;
     this.gridOptions.sortingOrder = ['desc', 'asc', null];
     //this.gridOptions.columnDefs = this.createColumnDefs();
     }

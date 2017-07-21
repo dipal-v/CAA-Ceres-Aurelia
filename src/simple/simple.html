@@ -44,7 +44,7 @@
 				   <ag-grid-column header-name='Order Name' field='name'></ag-grid-column>
 				   <ag-grid-column header-name='Created' field='created'></ag-grid-column>
 				   <ag-grid-column header-name='Days Column' field='id'></ag-grid-column>
-				   <ag-grid-column header-name='Status' field='status'>
+				   <ag-grid-column header-name='Status' field='status' filter='text'>
                      <ag-cell-template>
                        <status data="${params.value}"></status>
                      </ag-cell-template>
