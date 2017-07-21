@@ -1,7 +1,7 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
 import { inject } from 'aurelia-framework';
 import { Messenger} from '../services/messenger';
-import {GridOptions} from 'ag-grid';
+import {GridOptions, GridApi} from 'ag-grid';
 
 @inject(EventAggregator)
 export class Simple {
@@ -12,6 +12,7 @@ export class Simple {
   private rowData: any[];
   private columnDefs: any[];
   private gridOptions: GridOptions;
+  private gridApi: GridApi;
 
   // Getters can't be directly observed, so they must be dirty checked.
   // However, if you tell Aurelia the dependencies, it no longer needs to dirty check the property.
@@ -22,8 +23,17 @@ export class Simple {
 
         this.ea = EventAggregator;
         this.messenger = new Messenger(this.ea);
-		this.gridOptions = <GridOptions>{}
+		this.gridOptions = <GridOptions>{};
 		this.gridOptions.rowData = this.createRowData();
+    this.gridOptions.pagination = true;
+    //this.gridOptions.paginationPageSize = 5;
+    this.gridOptions.paginationAutoPageSize = true;
+    //this.gridOptions.suppressSizeToFit = true;
+    this.gridOptions.onGridReady = () => {
+      this.gridApi = this.gridOptions.api;
+        this.gridApi.sizeColumnsToFit();
+    }
+    
     }
 
 
