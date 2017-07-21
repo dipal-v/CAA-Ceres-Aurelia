@@ -30,10 +30,12 @@ export class Simple {
     this.gridOptions.paginationAutoPageSize = true;
     //this.gridOptions.suppressSizeToFit = true;
     this.gridOptions.onGridReady = () => {
-      this.gridApi = this.gridOptions.api;
+        this.gridApi = this.gridOptions.api;
         this.gridApi.sizeColumnsToFit();
     }
-    
+    this.gridOptions.enableSorting = true;
+    this.gridOptions.sortingOrder = ['desc', 'asc', null];
+    //this.gridOptions.columnDefs = this.createColumnDefs();
     }
 
 
