@@ -10,7 +10,7 @@ const sampleUser = {
 }
 const userPromise = new Promise(resolve => {
   // Simulate promise getting user data including permissions from API 
-  setTimeout(() => resolve(sampleUser), 1000);
+  resolve(sampleUser);
 });
 
 export function configure(aurelia: Aurelia) {
