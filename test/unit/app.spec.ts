@@ -40,8 +40,9 @@ describe('the App module', () => {
      expect(sut.router.routes).toContain(
 	 { route: 'users', name: 'users', moduleId: 'users/users', nav: true, title: 'Github Users' }
 	 );
+  });
 
   it('should have a child router route', () => {
-    expect(sut.router.routes).toContain({ route: 'child-router', name: 'child-router', moduleId: 'child-router', nav: true, title:'Child Router' });
+      expect(sut.router.routes).toContain({ route: 'child-router', name: 'child-router', moduleId: 'child/child-router', nav: true, title: 'Child Router', settings: Object({ permission: Object({ only: [ 'ViewChildRouter' ] }) }) });
   });
 });

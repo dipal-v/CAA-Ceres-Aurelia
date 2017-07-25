@@ -1,6 +1,6 @@
 var appRoot = 'src/';
 var outputRoot = 'dist/';
-var exporSrvtRoot = 'export/'
+var exporSrvtRoot = 'export/';
 
 module.exports = {
   root: appRoot,
@@ -14,6 +14,7 @@ module.exports = {
   doc: './doc',
   e2eSpecsSrc: 'test/e2e/src/**/*.ts',
   e2eSpecsDist: 'test/e2e/dist/',
+  unittestSrc: 'test/unit/*.ts',
   dtsSrc: [
     './typings/**/*.d.ts',
     './custom_typings/**/*.d.ts'
