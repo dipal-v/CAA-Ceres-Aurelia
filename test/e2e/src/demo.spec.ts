@@ -14,7 +14,7 @@ describe('aurelia skeleton app', function() {
   });
 
   it('should load the page and display the initial page title', () => {
-    expect(po_skeleton.getCurrentPageTitle()).toBe('Welcome | Aurelia');
+    expect(po_skeleton.getCurrentPageTitle()).toBe('Welcome | CAA-Ceres-Aurelia');
   });
 
   it('should display greeting', () => {
@@ -37,6 +37,6 @@ describe('aurelia skeleton app', function() {
 
   it('should navigate to users page', () => {
     po_skeleton.navigateTo('#/users');
-    expect(po_skeleton.getCurrentPageTitle()).toBe('Github Users | Aurelia');
+    expect(po_skeleton.getCurrentPageTitle()).toBe('Github Users | CAA-Ceres-Aurelia');
   });
 });

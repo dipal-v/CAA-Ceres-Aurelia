@@ -2,7 +2,7 @@ import {browser, element, by, By, $, $$, ExpectedConditions} from 'aurelia-protr
 
 export class PageObject_Welcome {
   getGreeting() {
-    return element(by.tagName('h2')).getText();
+    return element(by.tagName('h1')).getText();
   }
 
   setFirstname(value) {
