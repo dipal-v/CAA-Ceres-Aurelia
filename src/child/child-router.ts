@@ -7,17 +7,26 @@ export class ChildRouter {
   public parent;
 
   public configureRouter(config: RouterConfiguration, router: Router) {
-    config.map([
-      
-      
-      { route: ['','child1'],  name: 'child1',  moduleId: 'child/child1',  nav: true, title: 'Child One' },
-      { route: 'child2',  name: 'child2',  moduleId: 'child/child2',  nav: true, title: 'Child Two' },
-      { route: 'child3',  name: 'child3',  moduleId: 'child/child3',  nav: true, title: 'Child Three' },
+    config.map([{
+        route: ['','child1'],
+        name: 'child1',
+        moduleId: 'child/child1',
+        nav: true, title: 'Child One'
+    },{
+        route: 'child2',
+        name: 'child2',
+        moduleId: 'child/child2',
+        nav: true,
+        title: 'Child Two'
+    },{
+        route: 'child3',
+        name: 'child3',
+        moduleId: 'child/child3',
+        nav: true,
+        title: 'Child Three' },
     ]);
 
-    
-
     this.router = router;
-    
+
   }
 }

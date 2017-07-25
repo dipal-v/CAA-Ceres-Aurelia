@@ -1,12 +1,9 @@
 import * as moment from "moment";
 export class Footer {
-  footerDate = moment(new Date()).format('YYYY');
-  pixelsScrolled = 0;
-  OnScroll;
+  private footerDate = moment(new Date()).format('YYYY');
+  private pixelsScrolled = 0;
+  private OnScroll;
 
-  ScrollToTop() {
-    window.scrollTo(0, 0);
-  }
   constructor() {
         this.OnScroll = e => {
             this.pixelsScrolled = window.scrollY;
@@ -14,10 +11,15 @@ export class Footer {
         };
     }
 
-  attached() {
+  public ScrollToTop() {
+    window.scrollTo(0, 0);
+  }
+
+  public attached() {
         document.addEventListener('scroll', this.OnScroll);
   }
-  detached() {
+
+  public detached() {
         document.removeEventListener('scroll', this.OnScroll);
   }   
 }

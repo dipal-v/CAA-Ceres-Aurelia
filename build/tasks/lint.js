@@ -5,7 +5,9 @@ var tslint = require('gulp-tslint');
 gulp.task('lint', function() {
   return gulp.src([paths.source, paths.unittestSrc])
     .pipe(tslint({
-      emitError: false
+		formatter: 'stylish'
     }))
-    .pipe(tslint.report());
+    .pipe(tslint.report({
+		emitError: false
+	}));
 });
