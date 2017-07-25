@@ -1,10 +1,11 @@
 <template>
    <require from="components/messages"></require>
+   <require from="components/status"></require>
    <div class="menu-content-container" style="border-top:0px">
-      
+
       <div class="container container-board">
   <section class="au-animate">
-   
+
         <messages></messages>
         <div class="filter-panel">
             <div class="row">
@@ -25,21 +26,41 @@
                 <button click.delegate="showError()">show error</button>
             <div class="row page-content">
                 <!-- Page content -->
-                
+
                 <h2>Table</h2>
-                 <datatable 
-      
+                 <datatable
+
       columns="id,name as 'username'"
 
       footer.bind="footer"
       data.bind="data"
-  ></datatable>
+				   ></datatable>
             </div>
+			<div class="row page-content">
+			  <div style="width: 100%; height: 250px">
+				 <ag-grid-aurelia #agGrid class="ag-fresh"
+								  style="width: 100%;height: 100%"
+								  grid-options.bind="gridOptions">
+				   <ag-grid-column header-name='Order Name' field='name'></ag-grid-column>
+				   <ag-grid-column header-name='Created' field='created'></ag-grid-column>
+				   <ag-grid-column header-name='Days Column' field='id'></ag-grid-column>
+				   <ag-grid-column header-name='Status' field='status' filter='text'>
+                     <ag-cell-template>
+                       <status data="${params.value}"></status>
+                     </ag-cell-template>
+                   </ag-grid-column>
+				   <ag-grid-column header-name='Restrictions' field='restrictions'>
+                     <ag-cell-template>
+                       <a if.bind='params.value'>restriction <span class="badge">${params.value.restriction.length}</span></a>
+                     </ag-cell-template>
+                   </ag-grid-column>
+				 </ag-grid-aurelia>
+			  </div>
+			</div>
 
-            
         </div>
     </div>
-   
+
   </section>
   </div>
    </div>

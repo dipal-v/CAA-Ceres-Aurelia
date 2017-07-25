@@ -1,6 +1,7 @@
 import 'bootstrap';
 import {Aurelia} from 'aurelia-framework';
 import { PermissionStore, Configuration } from 'aurelia-permission';
+ import {PLATFORM} from 'aurelia-framework';
  
 const sampleUser = {
   id: 1,
@@ -18,6 +19,7 @@ export function configure(aurelia: Aurelia) {
     .standardConfiguration()
     .developmentLogging()
     .plugin('aurelia-datatable')
+	.plugin('ag-grid-aurelia')
     .plugin('aurelia-permission', (permissionStore: PermissionStore, configuration: Configuration) =>
       configurePermissions(aurelia, permissionStore, configuration));
 
