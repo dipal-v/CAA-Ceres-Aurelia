@@ -1,6 +1,7 @@
 <template>
    <require from="components/messages"></require>
    <require from="components/status"></require>
+   <require from="components/anchor"></require>
    <div class="menu-content-container" style="border-top:0px">
 
       <div class="container container-board">
@@ -18,6 +19,7 @@
               <!-- Page content -->
               <h2>Description</h2>
               <p>This is a simple ceres module. No second level menus, No left hand menus.</p>
+              <anchor data="anchor element" single.delegate="anchor_callback()"></anchor>
 
               <h2>Test messenger service</h2>
               <button click.delegate="showWarn()">show warning</button>
