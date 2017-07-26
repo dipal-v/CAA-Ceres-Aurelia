@@ -234,6 +234,29 @@ A gulp task has been added to do export and tar ball in one go:
 You will get ```caa-ceres-aurelia-1.0.0.tar.gz``` in your current folder. And the tar 
 ball name is derived from package.json: package_name-package_version.tar.gz .
 
+## Generate an new app
+
+the gulp task is:
+
+```shell
+gulp generator
+```
+
+And then cd `ceres-generator` and issue:
+
+```shell
+npm link
+```
+
+Then leave `ceres-generator` folder and go somewhere else to create your project folder.
+Then issue: 
+
+```shell
+yo
+```
+
+And choose 'Aurelia Ceres'
+
 ## Run it inside a Docker container
 
 Please go through installing docker page here: https://docs.docker.com/get-started/

@@ -18,5 +18,8 @@ module.exports = {
   dtsSrc: [
     './typings/**/*.d.ts',
     './custom_typings/**/*.d.ts'
-  ]
-}
+  ],
+	generatorBase: 'ceres-generator/generators/app/templates/',
+	generatorApp: 'ceres-generator/generators/app/templates/app',
+	generatorCeres: 'ceres-generator/generators/app/templates/ceres'
+};
