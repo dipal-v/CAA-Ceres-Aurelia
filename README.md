@@ -281,3 +281,37 @@ The configuration is done by ```bundles.js``` file.
 In addition, ```export.js``` file is available for including individual files.
 
 
+# Docker
+## Docker command
+
+After building the app with
+
+```shell
+gulp export
+```
+
+you can build a container image and run it with the following commands:
+
+```shell
+docker build -t caaaurelia:dockerfile
+docker run -p 9000:9000 -d caaaurelia:dockerfile 
+```
+This creates a container with the default dockerfile (which runs the app on NGINX)
+
+then you can reach your app by opening http://<<DOCKER_MACHINE_IP>>:9000/
+
+## Docker Compose
+
+With docker-compose you can run the following command to run the app:
+
+```shell
+docker-compose up -d
+```
+The ```-d``` option runs the container in the background, omit to see the output written to your console window.
+
+You can stop the app container with the following command:
+
+```shell
+docker-compose down
+```
+

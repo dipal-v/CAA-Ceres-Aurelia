@@ -1,0 +1,20 @@
+
+FROM node:6.11
+
+ENV HOME=/code
+ENV NPM_CONFIG_LOGLEVEL warn
+
+
+WORKDIR $HOME
+
+RUN npm install -g jspm gulp
+
+COPY . $HOME
+
+RUN npm install
+
+RUN jspm install -y
+
+EXPOSE 9000
+
+CMD ["gulp", "watch"]

@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  web-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.development
+    expose:
+      - 9000
+    environment:
+      - VIRTUAL_HOST=aurelia.dev
+      - DISABLE_NOTIFIER=true
+    volumes:
+      - .:/code
+      - /code/node_modules
+      - /code/jspm_packages
+    ports:
+      - '9000:9000'
