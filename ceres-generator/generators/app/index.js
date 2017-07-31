@@ -47,15 +47,8 @@ module.exports = yeoman.generators.Base.extend({
   writing: {
     app: function () {
 		var copyFolder = function(folder) {
-            var options = {
-                filter: function(src, dest){
-                    if(src.indexOf('app.ts') != -1){
-                        return true;
-                    }
-                }
-            }
-			fse.copy(path.join(this.templatePath('.'), folder),
-					 path.join(this.destinationPath('.'), folder), options);
+			return fse.copy(path.join(this.templatePath('.'), folder),
+					        path.join(this.destinationPath('.'), folder));
 		}.bind(this);
 
         var copy = function(file) {
@@ -71,7 +64,16 @@ module.exports = yeoman.generators.Base.extend({
 		    );
         }.bind(this);
 
-		copyFolder('src');
+        var removeAFile = function(file){
+            fs.unlink(this.destinationPath(file));
+        }.bind(this);
+
+		copyFolder('src').then(
+            function()
+            {
+                removeAFile(path.join('src', 'app.ts'));
+		        templateAsFile(path.join('src', 'app.ts'));
+            });
 		copyFolder('images');
 		copyFolder('build');
 		copyFolder('fonts');
@@ -80,7 +82,6 @@ module.exports = yeoman.generators.Base.extend({
 
 		templateAsFile('package.json');
 		templateAsFile('index.html');
-		templateAsFile(path.join('src', 'app.ts'));
 
 		copy('.editorconfig');
 		copy('.gitignore');
@@ -102,6 +103,7 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   install: function () {
-      //this.installDependencies();
+      this.runInstall('npm');
+      this.runInstall('jspm');
   }
 });
