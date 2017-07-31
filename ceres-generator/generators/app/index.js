@@ -3,6 +3,9 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var path = require('path');
+var fse = require('fs-extra');
+var fs = require('fs');
+
 
 module.exports = yeoman.generators.Base.extend({
 
@@ -44,33 +47,40 @@ module.exports = yeoman.generators.Base.extend({
   writing: {
     app: function () {
 		var copyFolder = function(folder) {
-			this.directory(path.join(this.templatePath('.'), folder), 
-						   path.join(this.destinationPath('.'), folder));
+            var options = {
+                filter: function(src, dest){
+                    if(src.indexOf('app.ts') != -1){
+                        return true;
+                    }
+                }
+            }
+			fse.copy(path.join(this.templatePath('.'), folder),
+					 path.join(this.destinationPath('.'), folder), options);
 		}.bind(this);
- 
+
+        var copy = function(file) {
+            this.fs.copy(this.templatePath(file),
+                         this.destinationPath(file));
+        }.bind(this);
+
+        var templateAsFile = function(file){
+		    this.fs.copyTpl(
+                this.templatePath(file),
+                this.destinationPath(file),
+			    this.props
+		    );
+        }.bind(this);
+
 		copyFolder('src');
 		copyFolder('images');
 		copyFolder('build');
 		copyFolder('fonts');
 		copyFolder('styles');
 		copyFolder('test');
-    },
-
-    projectfiles: function () {
-      var copy = function(file) {
-          this.fs.copy(this.templatePath(file),
-                       this.destinationPath(file));
-      }.bind(this);
-
-      var templateAsFile = function(file){
-		  this.fs.copyTpl(
-              this.templatePath(file),
-              this.destinationPath(file),
-			  this.props
-		  );
-      }.bind(this);
 
 		templateAsFile('package.json');
+		templateAsFile('index.html');
+		templateAsFile(path.join('src', 'app.ts'));
 
 		copy('.editorconfig');
 		copy('.gitignore');
@@ -79,7 +89,6 @@ module.exports = yeoman.generators.Base.extend({
 		copy('dockerfile');
 		copy('favicon.ico');
 		copy('gulpfile.js');
-		copy('index.html');
 		copy('index.js');
 		copy('karma.conf.js');
 		copy('protractor.conf.js');

@@ -38,6 +38,7 @@
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.1.0",
     "gulp-protractor": "3.0.0",
+    "gulp-replace": "^0.6.1",
     "gulp-sourcemaps": "^2.2.0",
     "gulp-tar": "^2.0.0",
     "gulp-tslint": "^6.1.3",
