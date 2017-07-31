@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const paths = require('../paths');
 const vinylPaths = require('vinyl-paths');
 const del = require('del');
+var replace = require('gulp-replace');
 
 const srcs = [
 	'src/**/*',
@@ -20,7 +21,6 @@ const srcs = [
 	'index.html',
 	'index.js',
 	'karma.conf.js',
-	'package.json',
 	'protractor.conf.js',
 	'tsconfig.e2e.json',
 	'tsconfig.json',
@@ -30,7 +30,11 @@ const srcs = [
 ];
 
 gulp.task('generator-copy', function(){
-	return gulp.src(srcs, {base: '.'}).pipe(gulp.dest(paths.generatorBase));
+	gulp.src(srcs, {base: '.'}).pipe(gulp.dest(paths.generatorBase));
+    return gulp.src('package.json', {base: '.'})
+        .pipe(replace(/caa\-ceres\-aurelia/, '<%= scriptAppName %>'))
+        .pipe(gulp.dest(paths.generatorBase));
+
 });
 
 gulp.task('clean-generator', function(){

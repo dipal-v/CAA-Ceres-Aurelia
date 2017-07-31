@@ -62,6 +62,16 @@ module.exports = yeoman.generators.Base.extend({
                        this.destinationPath(file));
       }.bind(this);
 
+      var templateAsFile = function(file){
+		  this.fs.copyTpl(
+              this.templatePath(file),
+              this.destinationPath(file),
+			  this.props
+		  );
+      }.bind(this);
+
+		templateAsFile('package.json');
+
 		copy('.editorconfig');
 		copy('.gitignore');
 		copy('.npmignore');
@@ -72,7 +82,6 @@ module.exports = yeoman.generators.Base.extend({
 		copy('index.html');
 		copy('index.js');
 		copy('karma.conf.js');
-		copy('package.json');
 		copy('protractor.conf.js');
 		copy('tsconfig.e2e.json');
 		copy('tsconfig.json');
