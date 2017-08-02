@@ -9,5 +9,5 @@ gulp.task('distribute', ['export'], function(){
 	gulp.src('export/*')
 		.pipe(tar(package_json.name + '-' + package_json.version + '.tar'))
 		.pipe(gzip())
-		.pipe(gulp.dest('.'))
+		.pipe(gulp.dest('.'));
 });
