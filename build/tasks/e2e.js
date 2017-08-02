@@ -45,3 +45,16 @@ gulp.task('e2e', ['build-e2e'], function(cb) {
     .on('end', function() { process.exit(); })
     .on('error', function(e) { throw e; });
 });
+
+// runs build-e2e task
+// then runs end to end tasks
+// using Protractor: http://angular.github.io/protractor/
+gulp.task('e2e-demo', ['build-e2e'], function(cb) {
+  return gulp.src(paths.e2eSpecsDist + '**/*.js')
+    .pipe(protractor({
+      configFile: 'protractor.conf.js',
+      args: ['--baseUrl', 'http://ppwebtest01.inmarsat.com/caa-ceres-aurelia']
+    }))
+    .on('end', function() { process.exit(); })
+    .on('error', function(e) { throw e; });
+});

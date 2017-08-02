@@ -209,6 +209,8 @@ Integration tests are performed with [Protractor](http://angular.github.io/protr
   gulp e2e
   ```
 
+For jenkins, there exists a variant of the same job: `e2e-demo`.
+
 ## Exporting bundled production version
 A gulp task is already configured for that. Use the following command to export the app:
 
