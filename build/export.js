@@ -18,7 +18,10 @@ module.exports = {
     'jspm_packages/npm/aurelia-permission@0.5.0.js',
     'jspm_packages/npm/aurelia-permission@0.5.0/*',
     'jspm_packages/github/systemjs/**',
-    'jspm_packages/npm/aurelia-pager@0.1.1/**'
+    'jspm_packages/npm/aurelia-pager@0.1.1/**',
+    'jspm_packages/npm/ag-grid@11.0.0/dist/styles/ag-grid.css',
+    'jspm_packages/npm/ag-grid@11.0.0/dist/styles/theme-fresh.css',
+    'jspm_packages/npm/font-awesome@4.6.3/css/font-awesome.min.css'
   ],
   // this section lists any jspm packages that have
   // unbundled resources that need to be exported.
