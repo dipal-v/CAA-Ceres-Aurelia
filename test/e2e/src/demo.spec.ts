@@ -13,7 +13,7 @@ describe('aurelia skeleton app', function() {
     po_welcome = new PageObject_Welcome();
 	  po_simple = new PageObject_Simple();
 
-    browser.loadAndWaitForAureliaPage("http://localhost:9000");
+    browser.loadAndWaitForAureliaPage("/");
   });
 
   it('should load the page and display the initial page title', () => {
