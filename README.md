@@ -186,30 +186,26 @@ jspm install aurelia-router
   ```
 
 ## Running The E2E Tests
-Integration tests are performed with [Protractor](http://angular.github.io/protractor/#/).
 
-1. Place your E2E-Tests into the folder ```test/e2e/src```
-2. Install the necessary webdriver
+We are using cucumber.js to orchestrate our behavior-driven tests. If you are not familiar with it, you can find [its tutorial on the github](CAA-Ceres-Aurelia/test/e2e/)
+The tests are actually performed by [Protractor](http://angular.github.io/protractor/#/) with [aurelia-protractor-plugin](https://github.com/aurelia/protractor-plugin).
+Meanwhile, our tests are written in typescripts and are executed by [ts-node](https://github.com/TypeStrong/ts-node).
 
-  ```shell
-  gulp webdriver-update
-  ```
+Make sure your app runs and is accessible
 
-3. Configure the path to the webdriver by opening the file ```protractor.conf.js``` and adjusting the ```seleniumServerJar``` property. Typically its only needed to adjust the version number.
+```shell
+gulp watch
+```
 
-4. Make sure your app runs and is accessible
+Here are the steps to run the e2e tests:
 
-  ```shell
-  gulp watch
-  ```
+```shell
 
-5. In another console run the E2E-Tests
-
-  ```shell
-  gulp e2e
-  ```
-
-For jenkins, there exists a variant of the same job: `e2e-demo`.
+$ cd test/e2e
+$ npm install
+$ ./node_modules/.bin/webdriver-manager update
+$ ./node_modeles/.bin/protractor protractor.conf.js
+```
 
 ## Exporting bundled production version
 A gulp task is already configured for that. Use the following command to export the app:
