@@ -15,18 +15,15 @@ function sharedConfig() {
             format: 'pretty',
             tags: ''
         },
-		capabilities: {
-			'browserName': 'chrome'
-		},
+	capabilities: {
+	    'browserName': 'chrome'
+	},
         specs: ['features/*.feature'],
 
-        onPrepare: function () {
-            // place something here
-        },
-		plugins: [{
-			package: require.resolve('aurelia-protractor-plugin')
-		}],
-
+	plugins: [{
+	    package: require.resolve('aurelia-protractor-plugin')
+	}],
+        
         allScriptsTimeout: 11000,
         disableChecks: true,
 
