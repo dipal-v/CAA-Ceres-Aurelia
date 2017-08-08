@@ -6,6 +6,7 @@ System.config({
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
+
   meta: {
     "bootstrap": {
       "deps": [
@@ -13,6 +14,7 @@ System.config({
       ]
     }
   },
+
   map: {
     "ag-grid": "npm:ag-grid@11.0.0",
     "ag-grid-aurelia": "npm:ag-grid-aurelia@11.0.0",
@@ -38,6 +40,7 @@ System.config({
     "bluebird": "npm:bluebird@3.4.1",
     "bootstrap": "github:twbs/bootstrap@3.3.7",
     "bootstrap-sass": "github:twbs/bootstrap-sass@3.3.7",
+    "extend": "github:gamtiq/extend@0.1.1",
     "fetch": "github:github/fetch@1.1.1",
     "font-awesome": "npm:font-awesome@4.6.3",
     "jquery": "npm:jquery@2.2.4",
