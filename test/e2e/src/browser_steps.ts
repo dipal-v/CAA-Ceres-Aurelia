@@ -4,7 +4,7 @@ import {by, element, ExpectedConditions} from 'aurelia-protractor-plugin/protrac
 
 defineSupportCode(function({Given, When, Then}){
     Given('I am on home page', function() {
-        return this.driver.get('http://localhost:9000/');
+        return this.driver.get('/');
     });
 
     When('I click on {stringInDoubleQuotes}', function(text){

@@ -207,6 +207,12 @@ $ ./node_modules/.bin/webdriver-manager update
 $ ./node_modeles/.bin/protractor protractor.conf.js
 ```
 
+For jenkins, please run the E2E test against ppwebtest01.inmarsat.com, hence the last command becomes:
+
+```shell
+$ ./node_modeles/.bin/protractor protractor.demo.conf.js
+```
+
 ## Exporting bundled production version
 A gulp task is already configured for that. Use the following command to export the app:
 
