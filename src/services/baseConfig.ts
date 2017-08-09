@@ -26,6 +26,7 @@ export class BaseConfig {
     
     baseUrl = 'https://identity.inmarsat.com';
     oauthUrl = '/as/authorization.oauth2';
+    redirectUrl = 'http://ppwebtest01.inmarsat.com/caa-ceres-aurelia/';
     auth = true;
     clientId = 'imdemo_client';
     loginRoute = '#/login';

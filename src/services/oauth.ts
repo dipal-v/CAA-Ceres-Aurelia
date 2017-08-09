@@ -23,7 +23,7 @@ export class AuthService {
                 .withBaseUrl(this.config.baseUrl)
         });
 
-        client.post(this.config.oauthUrl, 'client_id='+this.config.clientId+'&response_type=token&redirect_uri=http://ppwebtest01.inmarsat.com/caa-ceres-aurelia')
+        client.post(this.config.oauthUrl, 'client_id='+this.config.clientId+'&response_type=token&redirect_uri='+this.config.redirectUrl)
             .then(data => {
                 console.log(data);
             });
