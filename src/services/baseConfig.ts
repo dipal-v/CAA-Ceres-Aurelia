@@ -24,13 +24,12 @@ export class BaseConfig {
     }
 
     
-    //baseUrl = 'https://identity.inmarsat.com';
-    //oauthUrl = '/as/authorization.oauth2';
+    baseUrl = 'https://identity.inmarsat.com';
+    oauthUrl = '/as/authorization.oauth2';
     auth = true;
-    baseUrl = 'https://github.com';
-    oauthUrl = '/login/oauth/authorize';
     clientId = 'imdemo_client';
     loginRoute = '#/login';
     loginRedirect = '#/';
     storage = 'localStorage';
+    state='happy';
 }

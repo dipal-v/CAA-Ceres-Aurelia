@@ -6,7 +6,6 @@ System.config({
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
-
   meta: {
     "bootstrap": {
       "deps": [
@@ -14,7 +13,6 @@ System.config({
       ]
     }
   },
-
   map: {
     "ag-grid": "npm:ag-grid@11.0.0",
     "ag-grid-aurelia": "npm:ag-grid-aurelia@11.0.0",
