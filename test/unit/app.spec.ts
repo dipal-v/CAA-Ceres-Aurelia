@@ -10,6 +10,8 @@ class RouterStub {
   public map(routes) {
     this.routes = routes;
   }
+  public addPipelineStep(stepName, stepClass) {
+  }
 }
 
 describe('the App module', () => {
@@ -36,7 +38,9 @@ describe('the App module', () => {
          name: 'welcome',
          moduleId: 'welcome/welcome',
          nav: true,
-         title: 'Welcome' }
+         title: 'Welcome',
+         auth: true
+        }
     );
   });
 
@@ -46,7 +50,9 @@ describe('the App module', () => {
            name: 'users',
            moduleId: 'users/users',
            nav: true,
-           title: 'Github Users' }
+           title: 'Github Users',
+           auth: true
+         }
      );
   });
 
@@ -57,6 +63,7 @@ describe('the App module', () => {
             moduleId: 'child/child-router',
             nav: true,
             title: 'Child Router',
+            auth: true,
             settings: Object({
                 permission: Object({
                     only: [ 'ViewChildRouter' ] }) }) });
