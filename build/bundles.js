@@ -27,6 +27,7 @@ module.exports = {
         "aurelia-loader-default",
         "aurelia-history-browser",
         "aurelia-logging-console",
+        "aurelia-http-client",
         "bootstrap",
         "bootstrap/css/bootstrap.css!text",
         "fetch",
