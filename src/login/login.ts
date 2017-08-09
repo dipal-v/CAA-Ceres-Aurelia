@@ -1,5 +1,5 @@
+import {inject} from 'aurelia-framework';
 import {AuthService} from '../services/oauth';
-import {inject} from 'aurelia-dependency-injection';
 
 
 @inject(AuthService)

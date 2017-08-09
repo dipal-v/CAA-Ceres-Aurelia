@@ -1,5 +1,5 @@
 import {PLATFORM} from 'aurelia-pal';
-import {inject} from 'aurelia-dependency-injection';
+import {inject} from 'aurelia-framework';
 import {BaseConfig} from './baseConfig';
 
 

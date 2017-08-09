@@ -1,4 +1,4 @@
-import {inject} from 'aurelia-dependency-injection';
+import {inject} from 'aurelia-framework';
 import {Authentication} from './authentication';
 import {BaseConfig} from './baseConfig';
 import {PLATFORM} from 'aurelia-pal';
