@@ -8,9 +8,9 @@ import {AuthService} from './services/oauth';
 @inject(AuthService)
 export class App {
     public router: Router;
-    authService: AuthService;
-    
-    constructor(private authService: AuthService) {
+    private authService: AuthService;
+
+    constructor(authService: AuthService) {
         this.authService = authService;
     }
 
