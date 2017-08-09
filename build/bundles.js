@@ -41,7 +41,8 @@ module.exports = {
         "ag-grid/dist/styles/ag-grid.css!text",
         "ag-grid/dist/styles/theme-fresh.css!text",
         "font-awesome/css/font-awesome.min.css!text",
-        "ag-grid-aurelia"
+        "ag-grid-aurelia",
+        "extend"
       ],
       "options": {
         "inject": true,
