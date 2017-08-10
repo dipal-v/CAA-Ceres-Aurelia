@@ -12,28 +12,24 @@ const sampleUser = {
     'AuthenticatedUser'
   ]
 }
-const guestUser = {
-  id: 1,
-  permissions: []
-}
 
 const userPromise = new Promise((accept, reject)=>{
     let a = new AuthService(new Authentication(), new BaseConfig());
     a.login().then(data => {
         accept(sampleUser);
-    }).catch(error=>{
+    }).catch(guestUser => {
         accept(guestUser);
     });
 });
 
 export function configure(aurelia: Aurelia) {
-  aurelia.use
-    .standardConfiguration()
-    .developmentLogging()
-    .plugin('aurelia-datatable')
+    aurelia.use
+        .standardConfiguration()
+        .developmentLogging()
+        .plugin('aurelia-datatable')
 	.plugin('ag-grid-aurelia')
-    .plugin('aurelia-permission', (permissionStore: PermissionStore, configuration: Configuration) =>
-      configurePermissions(aurelia, permissionStore, configuration));
+        .plugin('aurelia-permission', (permissionStore: PermissionStore, configuration: Configuration) =>
+                configurePermissions(aurelia, permissionStore, configuration));
 
   // Uncomment the line below to enable animation.
    //aurelia.use.plugin('aurelia-animator-css');

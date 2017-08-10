@@ -4,6 +4,7 @@ import {BaseConfig} from './baseConfig';
 import {PLATFORM} from 'aurelia-pal';
 import {HttpClient} from 'aurelia-http-client';
 import {AuthInterceptor} from './oauthInterceptor';
+import {OAuthUser} from './oauth-user';
 
 
 @inject(Authentication, BaseConfig)
@@ -11,10 +12,17 @@ export class AuthService {
     private authentication: Authentication;
     authenticated: boolean = false;
     public config: BaseConfig;
+    private user: OAuthUser
 
     constructor(authentication: Authentication, config: BaseConfig){
         this.authentication = authentication;
         this.config = config;
+        this.user = new OAuthUser('known', 'Guest');
+
+    }
+
+    getUser(){
+        return this.user;
     }
 
     login(){
@@ -32,7 +40,7 @@ export class AuthService {
                     resolve(data);
                 }).catch(error => {
                     console.log(error);
-                    reject(error);
+                    reject(this.user);
                 });
         });
     }
