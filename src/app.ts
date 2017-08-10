@@ -19,12 +19,21 @@ export class App {
         config.addPipelineStep('authorize', AuthenticateStep);
         
         config.map([
-            { route: ['', 'welcome'], name: 'welcome',      moduleId: 'welcome/welcome',      nav: true, title: 'Welcome', auth: true},
-            { route: 'simple', name: 'simple',      moduleId: 'simple/simple',      nav: true, title: 'Simple', auth: true },
-            { route: 'users',         name: 'users',        moduleId: 'users/users',        nav: true, title: 'Github Users', auth: true },
+            { route: ['', 'welcome'], name: 'welcome',      moduleId: 'welcome/welcome',      nav: true, title: 'Welcome', auth: true,  settings: {
+                permission: {
+                    only: ['AuthenticatedUser']
+                }}},
+            { route: 'simple', name: 'simple',      moduleId: 'simple/simple',      nav: true, title: 'Simple', auth: true,  settings: {
+                permission: {
+                    only: ['AuthenticatedUser']
+                }}},
+              { route: 'users',         name: 'users',        moduleId: 'users/users',        nav: true, title: 'Github Users', auth: true,  settings: {
+                  permission: {
+                      only: ['AuthenticatedUser']
+                  }}},
             { route: 'child-router',  name: 'child-router', moduleId: 'child/child-router', nav: true, title: 'Child Router', settings: {
                 permission: {
-                    only: ['ViewChildRouter']
+                    only: ['AuthenticatedUser']
                 }
             }, auth: true },
             {route: 'not-authorized', name: 'not-authorized', moduleId: 'errors/not-authorized', nav: false, title: 'Not Authorized'},

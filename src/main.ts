@@ -1,17 +1,29 @@
 import 'bootstrap';
 import {Aurelia} from 'aurelia-framework';
 import { PermissionStore, Configuration } from 'aurelia-permission';
- import {PLATFORM} from 'aurelia-framework';
+import {PLATFORM} from 'aurelia-framework';
+import {AuthService} from './services/oauth';
+import {Authentication} from './services/authentication';
+import {BaseConfig} from './services/baseConfig';
  
 const sampleUser = {
   id: 1,
   permissions: [
-    'ViewChildRouter'
+    'AuthenticatedUser'
   ]
 }
-const userPromise = new Promise(resolve => {
-  // Simulate promise getting user data including permissions from API 
-  resolve(sampleUser);
+const guestUser = {
+  id: 1,
+  permissions: []
+}
+
+const userPromise = new Promise((accept, reject)=>{
+    let a = new AuthService(new Authentication(), new BaseConfig());
+    a.login().then(data => {
+        accept(sampleUser);
+    }).catch(error=>{
+        accept(guestUser);
+    });
 });
 
 export function configure(aurelia: Aurelia) {
@@ -37,7 +49,7 @@ function configurePermissions(aurelia: Aurelia, permissionStore: PermissionStore
  
   userPromise
     .then((user: any) => {
-      const allApplicationPermissions = ['ViewChildRouter'];
+      const allApplicationPermissions = ['AuthenticatedUser'];
  
       permissionStore.definePermissions(
         allApplicationPermissions,
