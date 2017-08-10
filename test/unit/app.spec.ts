@@ -39,7 +39,10 @@ describe('the App module', () => {
          moduleId: 'welcome/welcome',
          nav: true,
          title: 'Welcome',
-         auth: true
+         auth: true,
+         settings: Object({
+                permission: Object({
+                    only: [ 'AuthenticatedUser' ] })})
         }
     );
   });
@@ -51,7 +54,10 @@ describe('the App module', () => {
            moduleId: 'users/users',
            nav: true,
            title: 'Github Users',
-           auth: true
+           auth: true,
+           settings: Object({
+                permission: Object({
+                    only: [ 'AuthenticatedUser' ] })})
          }
      );
   });
@@ -66,6 +72,6 @@ describe('the App module', () => {
             auth: true,
             settings: Object({
                 permission: Object({
-                    only: [ 'ViewChildRouter' ] }) }) });
+                    only: [ 'AuthenticatedUser' ] }) }) });
   });
 });
