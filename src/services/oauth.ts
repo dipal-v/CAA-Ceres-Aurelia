@@ -37,6 +37,8 @@ export class AuthService {
             client.post(this.config.oauthUrl, 'client_id='+this.config.clientId+'&response_type=token&redirect_uri='+this.config.redirectUrl)
                 .then(data => {
                     console.log(data);
+                    // Add this line will enable all menu
+                    // this.user.permissions = ['AuthenticatedUser'];
                     resolve(data);
                 }).catch(error => {
                     console.log(error);

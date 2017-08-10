@@ -6,14 +6,7 @@ import {AuthService} from './services/oauth';
 import {Authentication} from './services/authentication';
 import {BaseConfig} from './services/baseConfig';
  
-const sampleUser = {
-  id: 1,
-  permissions: [
-    'AuthenticatedUser'
-  ]
-}
-
-const userPromise = new Promise((accept, reject)=>{
+const loginPromise = new Promise((accept, reject)=>{
     let a = new AuthService(new Authentication(), new BaseConfig());
     a.login().then(data => {
         accept(sampleUser);
@@ -43,7 +36,7 @@ export function configure(aurelia: Aurelia) {
 function configurePermissions(aurelia: Aurelia, permissionStore: PermissionStore, configuration: Configuration) {
   configuration.useDefaultRedirectRoute('not-authorized');
  
-  userPromise
+  loginPromise
     .then((user: any) => {
       const allApplicationPermissions = ['AuthenticatedUser'];
  
