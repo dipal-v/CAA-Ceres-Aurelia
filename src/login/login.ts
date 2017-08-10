@@ -1,15 +1,19 @@
 import {inject} from 'aurelia-framework';
 import {AuthService} from '../services/oauth';
+import {Router} from 'aurelia-router';
 
 
-@inject(AuthService)
+@inject(AuthService, Router)
 export class Login {
     message: string;
-    constructor(authService: AuthService){
+    router: Router;
+    constructor(authService: AuthService, router: Router){
         this.message = "Access denied";
+        this.router = router;
         authService.login().then(data => {
             console.log(data);
         }).catch(error=>{
+            router.navigate("not-authorized");
             console.log(error);
         });;
     }
