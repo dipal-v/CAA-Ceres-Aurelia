@@ -10,6 +10,7 @@ class RouterStub {
   public map(routes) {
     this.routes = routes;
   }
+
   public addPipelineStep(stepName, stepClass) {
   }
 }
