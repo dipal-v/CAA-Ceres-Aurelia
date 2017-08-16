@@ -8,8 +8,8 @@ import {BaseConfig} from './services/baseConfig';
  
 const loginPromise = new Promise((accept, reject)=>{
     let a = new AuthService(new Authentication(), new BaseConfig());
-    a.login().then(data => {
-        accept(sampleUser);
+    a.login().then(authenticatedUser => {
+        accept(authenticatedUser);
     }).catch(guestUser => {
         accept(guestUser);
     });
