@@ -3,6 +3,7 @@ import {Router, RouterConfiguration} from 'aurelia-router';
 import { inject } from 'aurelia-framework';
 import {AuthenticateStep} from './services/authenticateStep';
 import {AuthService} from './services/oauth';
+import {PLATFORM} from 'aurelia-pal';
 
 
 @inject(AuthService)
@@ -21,10 +22,10 @@ export class App {
         config.map([{
             route: ['', 'welcome'],
             name: 'welcome',
-            moduleId: 'welcome/welcome',
-            nav: true,
+            moduleId: PLATFORM.moduleName('./welcome/welcome'),
             title: 'Welcome',
             auth: true,
+			nav: true,
             settings: {
                 permission: {
                     only: ['AuthenticatedUser']
@@ -33,9 +34,9 @@ export class App {
         },{
             route: 'simple',
             name: 'simple',
-            moduleId: 'simple/simple',
-            nav: true,
+            moduleId: PLATFORM.moduleName('./simple/simple'),
             title: 'Simple',
+			nav: true,
             auth: true,
             settings: {
                 permission: {
@@ -45,9 +46,9 @@ export class App {
         },{
             route: 'users',
             name: 'users',
-            moduleId: 'users/users',
-            nav: true,
+            moduleId: PLATFORM.moduleName('./users/users'),
             title: 'Github Users',
+			nav: true,
             auth: true,
             settings: {
                 permission: {
@@ -57,8 +58,8 @@ export class App {
         },{
             route: 'child-router',
             name: 'child-router',
-            moduleId: 'child/child-router',
-            nav: true,
+            moduleId: PLATFORM.moduleName('./child/child-router'),
+			nav: true,
             title: 'Child Router',
             settings: {
                 permission: {
@@ -69,14 +70,14 @@ export class App {
         },{
             route: 'not-authorized',
             name: 'not-authorized',
-            moduleId: 'errors/not-authorized',
-            nav: false,
+			nav: false,
+            moduleId: PLATFORM.moduleName('errors/not-authorized'),
             title: 'Not Authorized'
         },{
             route: 'login',
             name: 'xyz',
-            moduleId: 'login/login',
-            nav: true,
+			nav: true,
+            moduleId: PLATFORM.moduleName('login/login'),
             title: "login"
         }]);
 

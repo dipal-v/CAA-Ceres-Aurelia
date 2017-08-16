@@ -1,41 +1,21 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "dist",
-    "sourceMap": true,
     "target": "es5",
-    "module": "amd",
-    "declaration": false,
-    "noImplicitAny": false,
-    "removeComments": true,
+    "module": "esnext",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
-    "lib": ["es2015", "dom"],
-    "baseUrl": "./",
-    "paths": {
-      "src/*": ["src/*"]
-    }
+    "sourceRoot": "src",
+    "allowJs": true,
+    "baseUrl": "src",
+    "lib": [
+      "es2017", "dom"
+    ]
   },
-  "filesGlob": [
-    "./src/**/*.ts",
-    "./test/**/*.ts",
-    "./typings/index.d.ts",
-    "./custom_typings/**/*.d.ts",
-    "./jspm_packages/**/*.d.ts"
-  ],
   "exclude": [
-    "node_modules",
-    "jspm_packages",
-    "dist",
-    "build",
-    "typings/main.d.ts",
-    "typings/main",
-    "typings/browser.d.ts",
-    "typings/browser"
-  ],
-  "atom": {
-    "rewriteTsconfig": false
-  }
+      "node_modules",
+	  "test",
+      "dist",
+      "static"
+  ]
 }
