@@ -38,7 +38,7 @@ export class AuthService {
                 .then(data => {
                     console.log(data);
                     // Add this line will enable all menu
-                    // this.user.permissions = ['AuthenticatedUser'];
+                    this.user.permissions = ['AuthenticatedUser'];
                     resolve(this.user);
                 }).catch(error => {
                     console.log(error);
