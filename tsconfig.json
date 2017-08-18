@@ -1,21 +1,22 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "module": "esnext",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "sourceRoot": "src",
-    "allowJs": true,
-    "baseUrl": "src",
-    "lib": [
-      "es2017", "dom"
-    ]
-  },
-  "exclude": [
-      "node_modules",
-	  "test",
-      "dist",
-      "static"
-  ]
+	"compilerOptions": {
+		"target": "es5",
+		"module": "esnext",
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"moduleResolution": "node",
+		"sourceRoot": "src",
+		"sourceMap": true,
+		"allowJs": true,
+		"baseUrl": "src",
+		"lib": [
+			"es2017", "dom"
+		]
+	},
+	"exclude": [
+		"node_modules",
+		"test",
+		"dist",
+		"static"
+	]
 }
