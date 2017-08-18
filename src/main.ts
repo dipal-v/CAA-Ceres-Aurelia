@@ -1,4 +1,6 @@
 import '../styles/main.css';
+import 'ag-grid/dist/styles/ag-grid.css';
+import 'ag-grid/dist/styles/theme-fresh.css';
 import 'font-awesome/css/font-awesome.css';
 import 'bootstrap';
 import {Aurelia} from 'aurelia-framework';
