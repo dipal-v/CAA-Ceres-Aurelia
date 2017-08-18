@@ -16,7 +16,7 @@ const title = 'Aurelia Navigation Skeleton';
 const outDir = path.resolve(__dirname, 'dist');
 const srcDir = path.resolve(__dirname, 'src');
 const nodeModulesDir = path.resolve(__dirname, 'node_modules');
-const baseUrl = '/';
+const baseUrl = '/caa-ceres-aurelia-webpack/';
 
 const cssRules = [
   { loader: 'css-loader' },
