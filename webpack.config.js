@@ -16,7 +16,9 @@ const title = 'Aurelia Navigation Skeleton';
 const outDir = path.resolve(__dirname, 'dist');
 const srcDir = path.resolve(__dirname, 'src');
 const nodeModulesDir = path.resolve(__dirname, 'node_modules');
-const baseUrl = '/caa-ceres-aurelia-webpack/';
+const demoBaseUrl = '/caa-ceres-aurelia-webpack/';
+const localBaseUrl = '/';
+
 
 const cssRules = [
   { loader: 'css-loader' },
@@ -42,7 +44,7 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
   },
   output: {
     path: outDir,
-    publicPath: baseUrl,
+    publicPath: production? demoBaseUrl : localBaseUrl,
     filename: production ? '[name].[chunkhash].bundle.js' : '[name].[hash].bundle.js',
     sourceMapFilename: production ? '[name].[chunkhash].bundle.map' : '[name].[hash].bundle.map',
     chunkFilename: production ? '[name].[chunkhash].chunk.js' : '[name].[hash].chunk.js',
@@ -112,10 +114,12 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
         removeComments: true,
         collapseWhitespace: true
       } : undefined,
-      metadata: {
+      metadata: production? {
         // available in index.ejs //
-        title, server, baseUrl
-      },
+        title, server, demoBaseUrl
+      } : {
+        title, server, localBaseUrl
+	  }
     }),
     new CopyWebpackPlugin([
       { from: 'static/favicon.ico', to: 'favicon.ico' }
