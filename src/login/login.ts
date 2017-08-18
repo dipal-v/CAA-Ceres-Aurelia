@@ -12,10 +12,10 @@ export class Login {
         this.router = router;
         authService.login().then(data => {
 			this.message = "Authenticated";
-            router.navigate("welcome");
+            this.router.navigate("welcome");
             console.log(data);
         }).catch(error=>{
-            router.navigate("not-authorized");
+            this.router.navigate("not-authorized");
             console.log(error);
         });;
     }
