@@ -10,7 +10,7 @@ class RouterStub {
   public map(routes) {
     this.routes = routes;
   }
-
+  
   public addPipelineStep(stepName, stepClass) {
   }
 }
@@ -18,7 +18,7 @@ class RouterStub {
 describe('the App module', () => {
   let sut;
   let mockedRouter;
-
+    
   beforeEach(() => {
     mockedRouter = new RouterStub();
     sut = new App();
@@ -34,10 +34,11 @@ describe('the App module', () => {
   });
 
   it('should have a welcome route', () => {
-    expect(sut.router.routes).toContain(
+    var welcome_route = sut.router.routes[0];
+    expect( welcome_route).toEqual(
         {route: [ '', 'welcome' ],
          name: 'welcome',
-         moduleId: 'welcome/welcome',
+         moduleId: './welcome/welcome',
          nav: true,
          title: 'Welcome',
          auth: true,
@@ -49,10 +50,11 @@ describe('the App module', () => {
   });
 
   it('should have a users route', () => {
-     expect(sut.router.routes).toContain(
+     var user_route = sut.router.routes[2];
+     expect(user_route).toEqual(
          { route: 'users',
            name: 'users',
-           moduleId: 'users/users',
+           moduleId: './users/users',
            nav: true,
            title: 'Github Users',
            auth: true,
@@ -64,10 +66,11 @@ describe('the App module', () => {
   });
 
   it('should have a child router route', () => {
-      expect(sut.router.routes).toContain(
+      var child_route = sut.router.routes[3];
+      expect(child_route).toEqual(
           { route: 'child-router',
             name: 'child-router',
-            moduleId: 'child/child-router',
+            moduleId: './child/child-router',
             nav: true,
             title: 'Child Router',
             auth: true,

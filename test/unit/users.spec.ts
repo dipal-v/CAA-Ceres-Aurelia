@@ -1,5 +1,5 @@
-import {Users} from 'src/users/users';
-import {UserService} from 'src/services/user-service';
+import {Users} from '../../src/users/users';
+import {UserService} from '../../src/services/user-service';
 
 class HttpStub {
   public items: any[];

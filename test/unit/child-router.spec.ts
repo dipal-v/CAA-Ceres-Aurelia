@@ -32,7 +32,8 @@ describe('the Child Router module', () => {
   });
 
   it('should have a welcome route', () => {
-    expect(sut.router.routes).toContain(
+      var child1_route = sut.router.routes[0];
+      expect(child1_route).toEqual(
         { route: ['', 'child1'],
           name: 'child1',
           moduleId: 'child/child1',
@@ -42,7 +43,8 @@ describe('the Child Router module', () => {
   });
 
   it('should have a users route', () => {
-     expect(sut.router.routes).toContain(
+      var child2_route = sut.router.routes[1];
+      expect(child2_route).toEqual(
            { route: 'child2',
            name: 'child2',
            moduleId: 'child/child2',
@@ -51,7 +53,8 @@ describe('the Child Router module', () => {
   });
 
   it('should have a child router route', () => {
-    expect(sut.router.routes).toContain(
+      var child3_route = sut.router.routes[2];
+      expect(child3_route).toEqual(
           { route: 'child3',
           name: 'child3',
           moduleId: 'child/child3',

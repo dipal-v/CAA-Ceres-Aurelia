@@ -25,7 +25,7 @@ export class App {
             moduleId: PLATFORM.moduleName('./welcome/welcome'),
             title: 'Welcome',
             auth: true,
-			nav: true,
+	    nav: true,
             settings: {
                 permission: {
                     only: ['AuthenticatedUser']
@@ -36,7 +36,7 @@ export class App {
             name: 'simple',
             moduleId: PLATFORM.moduleName('./simple/simple'),
             title: 'Simple',
-			nav: true,
+	    nav: true,
             auth: true,
             settings: {
                 permission: {
@@ -48,7 +48,7 @@ export class App {
             name: 'users',
             moduleId: PLATFORM.moduleName('./users/users'),
             title: 'Github Users',
-			nav: true,
+	    nav: true,
             auth: true,
             settings: {
                 permission: {
@@ -59,7 +59,7 @@ export class App {
             route: 'child-router',
             name: 'child-router',
             moduleId: PLATFORM.moduleName('./child/child-router'),
-			nav: true,
+	    nav: true,
             title: 'Child Router',
             settings: {
                 permission: {
@@ -70,13 +70,13 @@ export class App {
         },{
             route: 'not-authorized',
             name: 'not-authorized',
-			nav: false,
+	    nav: false,
             moduleId: PLATFORM.moduleName('errors/not-authorized'),
             title: 'Not Authorized'
         },{
             route: 'login',
             name: 'xyz',
-			nav: true,
+	    nav: true,
             moduleId: PLATFORM.moduleName('login/login'),
             title: "login"
         }]);
