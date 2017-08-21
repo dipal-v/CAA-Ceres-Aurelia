@@ -18,8 +18,8 @@
     "url": "https://github.com/Inmarsat-itcloudservices/CAA-CeresAurelia.git"
   },
   "scripts": {
-      "start": "nps",
-	  "test": "nps test"
+    "start": "nps",
+    "test": "nps test"
   },
   "jest": {
     "modulePaths": [
