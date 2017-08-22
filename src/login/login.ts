@@ -11,7 +11,7 @@ export class Login {
         this.message = "Access denied";
         this.router = router;
         authService.login().then(data => {
-			this.message = "Authenticated";
+            this.message = "Authenticated";
             this.router.navigate("welcome");
             console.log(data);
         }).catch(error=>{
