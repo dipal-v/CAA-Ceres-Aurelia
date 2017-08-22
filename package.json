@@ -106,6 +106,7 @@
     "protractor-cucumber-framework": "^4.0.2",
     "require-dir": "^0.3.1",
     "run-sequence": "^1.2.2",
+    "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "systemjs": "0.19.3",
     "ts-jest": "^20.0.10",

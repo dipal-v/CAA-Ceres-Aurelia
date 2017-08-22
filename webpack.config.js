@@ -67,6 +67,11 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
         }) : ['style-loader', ...cssRules],
       },
       {
+        test: /\.scss$/,
+        issuer: [{ not: [{ test: /\.html$/i }] }],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
         test: /\.css$/i,
         issuer: [{ test: /\.html$/i }],
         // CSS required in templates cannot be extracted safely
