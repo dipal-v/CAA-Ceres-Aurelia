@@ -12,7 +12,7 @@ const when = (condition, config, negativeConfig) =>
   condition ? ensureArray(config) : ensureArray(negativeConfig)
 
 // primary config:
-const title = 'Aurelia Navigation Skeleton';
+const title = 'Ceres Navigation Skeleton';
 const outDir = path.resolve(__dirname, 'dist');
 const srcDir = path.resolve(__dirname, 'src');
 const nodeModulesDir = path.resolve(__dirname, 'node_modules');
@@ -65,6 +65,11 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
           fallback: 'style-loader',
           use: cssRules,
         }) : ['style-loader', ...cssRules],
+      },
+      {
+        test: /\.scss$/,
+        issuer: [{ not: [{ test: /\.html$/i }] }],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.css$/i,
