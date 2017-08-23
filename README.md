@@ -119,20 +119,16 @@ Integration tests can be performed with [Protractor](http://angular.github.io/pr
 npm start -- e2e
 ```
 
-# The following items need re-work
-
-## Exporting bundled production version
-
-<<missing>>
-
 ## Generate an new app
 
-<<needs updating>>
+```
+npm install -g gulp
+```
 
 the gulp task is:
 
 ```shell
-gulp generator
+gulp
 ```
 
 And then cd `ceres-generator` and issue:
@@ -145,10 +141,26 @@ Then leave `ceres-generator` folder and go somewhere else to create your project
 Then issue: 
 
 ```shell
-yo
+$ yo
+? 'Allo Chenfu! What would you like to do? (Use arrow keys)
+  Run a generator
+❯ Aurelia Ceres 
+  ──────────────
+  Update your generators 
+  Install a generator 
+  Find some help 
+  Get me out of here! 
+(Move up and down to reveal more choices)
 ```
 
 And choose 'Aurelia Ceres'
+
+
+# The following items need re-work
+
+## Exporting bundled production version
+
+<<missing>>
 
 ## Run it inside a Docker container
 
