@@ -1,0 +1,7 @@
+{
+  "fakeoauth": {
+    "client_id": "dummy",
+    "response_type": "token",
+    "redirect_uri": "http://ppwebtest01.inmarsat.com/caa-ceres-aurelia/"
+  }
+}

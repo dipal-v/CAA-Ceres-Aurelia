@@ -15,6 +15,7 @@
 	},
 	"exclude": [
 		"node_modules",
+		"ceres-generator",
 		"test",
 		"dist",
 		"static"

@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const { AureliaPlugin, ModuleDependenciesPlugin } = require('aurelia-webpack-plugin');
-const { optimize: { CommonsChunkPlugin }, ProvidePlugin } = require('webpack');
+const { optimize: { CommonsChunkPlugin }, ProvidePlugin, EnvironmentPlugin} = require('webpack');
 const { TsConfigPathsPlugin, CheckerPlugin } = require('awesome-typescript-loader');
 
 // config helpers:
@@ -110,6 +110,11 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
       '$': 'jquery',
       'jQuery': 'jquery',
       'window.jQuery': 'jquery',
+    }),
+    new EnvironmentPlugin({
+      OAUTH_BASE: process.env.OAUTH_BASE,
+      OAUTH_URL: process.env.OAUTH_URL,
+      OAUTH_CLIENTID: process.env.OAUTH_CLIENTID,
     }),
     new TsConfigPathsPlugin(),
     new CheckerPlugin(),

@@ -30,6 +30,7 @@ module.exports = {
     e2e: {
       default: concurrent({
         webpack: `webpack-dev-server --inline --port=${E2E_PORT}`,
+        jsonserver: `json-server --watch dummy.json`,
         protractor: 'nps e2e.whenReady',
       }) + ' --kill-others --success first',
       protractor: {
