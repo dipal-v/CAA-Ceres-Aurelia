@@ -1,3 +1,3 @@
 FROM nginx:alpine
-COPY ./export/ /usr/share/nginx/html
+COPY dist /usr/share/nginx/html/caa-ceres-aurelia-webpack
 EXPOSE 80
