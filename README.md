@@ -116,7 +116,8 @@ Integration tests can be performed with [Protractor](http://angular.github.io/pr
 2. Run the tests by invoking
 
 ```shell
-npm start -- e2e
+$ source environment-test.sh
+$ npm start -- e2e
 ```
 
 ## Generate an new app
