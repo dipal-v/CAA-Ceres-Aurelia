@@ -25,7 +25,7 @@ export class AuthService {
         return this.user;
     }
 
-    login(){
+    login() : Promise<OAuthUser> {
         let client = new HttpClient();
         client.configure(config => {
             config.withHeader('content-type', 'application/x-www-form-urlencoded')

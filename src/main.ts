@@ -6,22 +6,26 @@ import 'bootstrap';
 import {Aurelia} from 'aurelia-framework';
 import { PermissionStore, Configuration } from 'aurelia-permission';
 import {PLATFORM} from 'aurelia-framework';
-import {AuthService} from './services/oauth';
-import {Authentication} from './services/authentication';
-import {BaseConfig} from './services/baseConfig';
+import {AuthService} from './oauth/oauth';
+import {Authentication} from './oauth/authentication';
+import {BaseConfig} from './oauth/baseConfig';
 import * as Bluebird from 'bluebird';
 
 
 // remove out if you don't want a Promise polyfill (remove also from webpack.config.js)
 Bluebird.config({ warnings: { wForgottenReturn: false } });
 
-console.log(process.env.ELSE);
-
 export function configure(aurelia: Aurelia) {
     aurelia.use
         .standardConfiguration()
         .developmentLogging()
-        .plugin(PLATFORM.moduleName('oauth'))
+        .plugin(PLATFORM.moduleName('oauth'), baseConfig => {
+            baseConfig.configure({
+                baseUrl: process.env.OAUTH_BASE,
+                oauthUrl: process.env.OAUTH_URL,
+                clientId: process.env.OAUTH_CLIENTID
+            });
+        })
         .plugin(PLATFORM.moduleName('aurelia-datatable'))
         .plugin(PLATFORM.moduleName('ag-grid-aurelia'))
         .plugin(PLATFORM.moduleName('aurelia-pager'))
@@ -40,17 +44,11 @@ export function configure(aurelia: Aurelia) {
 function configurePermissions(aurelia: Aurelia, permissionStore: PermissionStore, configuration: Configuration) {
     configuration.useDefaultRedirectRoute('not-authorized');
 
+    const oauth = aurelia.container.get(AuthService);
+
     const loginPromise = new Promise((accept, reject)=>{
         let config = new BaseConfig();
-        if (process.env.OAUTH_BASE){
-            config.configure({
-                baseUrl: process.env.OAUTH_BASE,
-                oauthUrl: process.env.OAUTH_URL,
-                clientId: process.env.OAUTH_CLIENTID
-            })
-        }
-        let a = new AuthService(new Authentication(), config);
-        a.login().then(authenticatedUser => {
+        oauth.login().then(authenticatedUser => {
             accept(authenticatedUser);
         }).catch(guestUser => {
             accept(guestUser);

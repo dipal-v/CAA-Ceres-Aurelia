@@ -1,8 +1,8 @@
 import {Router, RouterConfiguration} from 'aurelia-router';
 //import { AuthorizationService } from 'aurelia-permission';
 import { inject } from 'aurelia-framework';
-import {AuthenticateStep} from './services/authenticateStep';
-import {AuthService} from './services/oauth';
+import {AuthenticateStep} from './oauth/authenticateStep';
+import {AuthService} from './oauth/oauth';
 import {PLATFORM} from 'aurelia-pal';
 
 
