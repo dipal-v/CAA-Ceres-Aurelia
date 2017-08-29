@@ -21,6 +21,7 @@ export function configure(aurelia: Aurelia) {
     aurelia.use
         .standardConfiguration()
         .developmentLogging()
+        .plugin(PLATFORM.moduleName('oauth'))
         .plugin(PLATFORM.moduleName('aurelia-datatable'))
         .plugin(PLATFORM.moduleName('ag-grid-aurelia'))
         .plugin(PLATFORM.moduleName('aurelia-pager'))

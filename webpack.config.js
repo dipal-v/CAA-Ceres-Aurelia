@@ -99,11 +99,19 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
     ]
   },
   plugins: [
-      new AureliaPlugin(),
-	  new ModuleDependenciesPlugin({
-		  "aurelia-datatable": [ "./datatable", "./bootstrap/datatable.html" ],
-		  "aurelia-pager": ["./pager", "./bootstrap/pager.html"],
-		  "aurelia-permission": ["./permission", "./permission-filter"]
+    new AureliaPlugin({
+      includeSubModules: [
+        {moduleId: 'oauth'}
+      ],
+      contextMap: {
+        'oauth': 'oauth/index.js'
+      }
+    }),
+    new ModuleDependenciesPlugin({
+      "oauth": [ "./test" ],
+      "aurelia-datatable": [ "./datatable", "./bootstrap/datatable.html" ],
+      "aurelia-pager": ["./pager", "./bootstrap/pager.html"],
+      "aurelia-permission": ["./permission", "./permission-filter"]
     }),
     new ProvidePlugin({
       'Promise': 'bluebird',
