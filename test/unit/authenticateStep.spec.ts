@@ -1,4 +1,4 @@
-import {AuthenticateStep} from '../../src/services/authenticateStep';
+import {AuthenticateStep} from '../../src/oauth/authenticateStep';
 import {BaseConfig} from '../../src/services/baseConfig';
 import {Authentication} from '../../src/services/authentication';
 import {AuthService} from '../../src/services/oauth';
