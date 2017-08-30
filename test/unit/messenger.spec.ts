@@ -16,7 +16,7 @@ describe('the Messenger service', () => {
         messageText = "Info";
         messageType = 'info';
         ea.subscribe('messages', response => {
-        expect(response).toBe({text: messageText, type: messageType});
+            expect(response).toBe({text: messageText, type: messageType});
         });
         messenger.info(messageText);
     });
@@ -25,7 +25,7 @@ describe('the Messenger service', () => {
         messageText = "Warn";
         messageType = 'warn';
         ea.subscribe('messages', response => {
-        expect(response).toBe({text: messageText, type: messageType});
+            expect(response).toBe({text: messageText, type: messageType});
         });
         messenger.warn(messageText);
     });
@@ -34,7 +34,7 @@ describe('the Messenger service', () => {
         messageText = "Success";
         messageType = 'success';
         ea.subscribe('messages', response => {
-        expect(response).toBe({text: messageText, type: messageType});
+            expect(response).toBe({text: messageText, type: messageType});
         });
         messenger.success(messageText);
     });
@@ -43,7 +43,7 @@ describe('the Messenger service', () => {
         messageText = "Error";
         messageType = 'error';
         ea.subscribe('messages', response => {
-        expect(response).toBe({text: messageText, type: messageType});
+            expect(response).toBe({text: messageText, type: messageType});
         });
         messenger.error(messageText);
     });
