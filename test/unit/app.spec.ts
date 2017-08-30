@@ -1,74 +1,76 @@
 import {App} from '../../src/app';
 
 class RouterStub {
-  private routes;
+	private routes;
 
-  public configure(handler) {
-    handler(this);
-  }
+	public configure(handler) {
+		handler(this);
+	}
 
-  public map(routes) {
-    this.routes = routes;
-  }
-  
-  public addPipelineStep(stepName, stepClass) {
-  }
+	public map(routes) {
+		this.routes = routes;
+	}
+	
+	public addPipelineStep(stepName, stepClass) {
+	}
 }
 
 describe('the App module', () => {
-  let sut;
-  let mockedRouter;
-    
-  beforeEach(() => {
-    mockedRouter = new RouterStub();
-    sut = new App();
-    sut.configureRouter(mockedRouter, mockedRouter);
-  });
+	let sut;
+	let mockedRouter;
+		
+	beforeEach(() => {
+		mockedRouter = new RouterStub();
+		sut = new App();
+		sut.configureRouter(mockedRouter, mockedRouter);
+	});
 
-  it('contains a router property', () => {
-    expect(sut.router).toBeDefined();
-  });
+	it('contains a router property', () => {
+		expect(sut.router).toBeDefined();
+	});
 
-  it('configures the router title', () => {
-    expect(sut.router.title).toEqual('CAA-Ceres-Aurelia');
-  });
+	it('configures the router title', () => {
+		expect(sut.router.title).toEqual('CAA-Ceres-Aurelia');
+	});
 
-  it('should have a welcome route', () => {
-    var welcome_route = sut.router.routes[0];
-    expect( welcome_route).toEqual(
-        {route: [ '', 'welcome' ],
-         name: 'welcome',
-         moduleId: './welcome/welcome',
-         nav: true,
-         title: 'Welcome',
-         auth: true,
-         settings: Object({
+	it('should have a welcome route', () => {
+		var welcome_route = sut.router.routes[0];
+		expect(welcome_route).toEqual({
+            route: [ '', 'welcome' ],
+            name: 'welcome',
+            moduleId: './welcome/welcome',
+            nav: true,
+            title: 'Welcome',
+            auth: true,
+            settings: Object({
                 permission: Object({
-                    only: [ 'AuthenticatedUser' ] })})
-        }
-    );
-  });
+                    only: [ 'AuthenticatedUser' ] 
+                })
+            })
+        });
+	});
 
-  it('should have a users route', () => {
-     var user_route = sut.router.routes[2];
-     expect(user_route).toEqual(
-         { route: 'users',
-           name: 'users',
-           moduleId: './users/users',
-           nav: true,
-           title: 'Github Users',
-           auth: true,
-           settings: Object({
+	it('should have a users route', () => {
+		 var user_route = sut.router.routes[2];
+		 expect(user_route).toEqual({
+            route: 'users',
+            name: 'users',
+            moduleId: './users/users',
+            nav: true,
+            title: 'Github Users',
+            auth: true,
+            settings: Object({
                 permission: Object({
-                    only: [ 'AuthenticatedUser' ] })})
-         }
-     );
-  });
+                    only: [ 'AuthenticatedUser' ] 
+                })
+            })		 
+        });
+	});
 
-  it('should have a child router route', () => {
-      var child_route = sut.router.routes[3];
-      expect(child_route).toEqual(
-          { route: 'child-router',
+	it('should have a child router route', () => {
+        var child_route = sut.router.routes[3];
+        expect(child_route).toEqual({ 
+            route: 'child-router',
             name: 'child-router',
             moduleId: './child/child-router',
             nav: true,
@@ -76,6 +78,9 @@ describe('the App module', () => {
             auth: true,
             settings: Object({
                 permission: Object({
-                    only: [ 'AuthenticatedUser' ] }) }) });
-  });
+                    only: [ 'AuthenticatedUser' ] 
+                }) 
+            }) 
+        });
+	});
 });

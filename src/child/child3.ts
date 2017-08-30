@@ -1,2 +1,2 @@
-export class Child1 {
+export class Child3 {
 }

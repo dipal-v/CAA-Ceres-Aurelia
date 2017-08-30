@@ -17,12 +17,12 @@ export class Welcome {
 
   public submit() {
     this.previousValue = this.fullName;
-    alert(`Welcome, ${this.fullName}!`);
+    window.alert(`Welcome, ${this.fullName}!`);
   }
 
   public canDeactivate() {
     if (this.fullName !== this.previousValue) {
-      return confirm('Are you sure you want to leave?');
+      return window.confirm('Are you sure you want to leave?');
     }
   }
 }

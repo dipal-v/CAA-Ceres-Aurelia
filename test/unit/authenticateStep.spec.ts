@@ -1,7 +1,7 @@
-import {AuthenticateStep} from '../../src/services/authenticateStep';
-import {BaseConfig} from '../../src/services/baseConfig';
-import {Authentication} from '../../src/services/authentication';
-import {AuthService} from '../../src/services/oauth';
+import {AuthenticateStep} from '../../src/oauth/authenticateStep';
+import {BaseConfig} from '../../src/oauth/baseConfig';
+import {Authentication} from '../../src/oauth/authentication';
+import {AuthService} from '../../src/oauth/oauth';
 
 
 class RoutingContextStub{
