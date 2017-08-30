@@ -28,9 +28,9 @@ function sharedConfig() {
               '--disable-background-timer-throttling',
               '--disable-renderer-backgrounding',
               '--disable-device-discovery-notifications',
-              '--headless'
+              '--headless',
+              '--no-gpu'
               /* enable these if you'd like to test using Chrome Headless
-                 '--no-gpu',
               */
             ]
           }
