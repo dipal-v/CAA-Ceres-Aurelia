@@ -15,7 +15,10 @@ node('master') {
             env.PATH = "${WORKSPACE}/node-v6.11.2-linux-x64/bin:${env.PATH}"
             sh "npm test"
         },
-        "Cucumberjs": { 
+        "Cucumberjs": {
+            env.OAUTH_BASE = "http://localhost:3000"
+            env.OAUTH_URL = "/fakeoauth"
+            env.OAUTH_CLIENTID = "dummy"
             env.PATH = "${WORKSPACE}/node-v6.11.2-linux-x64/bin:${env.PATH}"
             sh "npm start -- e2e"
         }

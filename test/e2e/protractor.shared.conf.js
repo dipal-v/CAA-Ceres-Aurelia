@@ -15,25 +15,26 @@ function sharedConfig() {
             format: 'pretty',
             tags: ''
         },
+        directConnect: true,
         capabilities: {
-            'browserName': 'chrome',
-            'chromeOptions': {
-                'args': [
-                    '--show-fps-counter',
-                    '--no-default-browser-check',
-                    '--no-first-run',
-                    '--disable-default-apps',
-                    '--disable-popup-blocking',
-                    '--disable-translate',
-                    '--disable-background-timer-throttling',
-                    '--disable-renderer-backgrounding',
-                    '--disable-device-discovery-notifications',
-                    /* enable these if you'd like to test using Chrome Headless
-                       '--no-gpu',
-                       '--headless'
-                    */
-                ]
-            }
+          'browserName': 'chrome',
+          'chromeOptions': {
+            'args': [
+              '--show-fps-counter',
+              '--no-default-browser-check',
+              '--no-first-run',
+              '--disable-default-apps',
+              '--disable-popup-blocking',
+              '--disable-translate',
+              '--disable-background-timer-throttling',
+              '--disable-renderer-backgrounding',
+              '--disable-device-discovery-notifications',
+              '--headless',
+              '--no-gpu'
+              /* enable these if you'd like to test using Chrome Headless
+              */
+            ]
+          }
         },
         specs: ['features/*.feature'],
 
