@@ -15,6 +15,7 @@ function sharedConfig() {
             format: 'pretty',
             tags: ''
         },
+        directConnect: true,
         capabilities: {
           'browserName': 'chrome',
           'chromeOptions': {
