@@ -5,13 +5,18 @@ describe('the Welcome module', () => {
     
     it('get fullname and deactivate', () => {
         let welcome = new Welcome();
+        const alert = jest.spyOn(window, 'alert');
+        const confirm = jest.spyOn(window, 'confirm');
         expect(welcome.fullName).toBe("John Doe");
         welcome.firstName = "Maha"
         welcome.lastName = "Singam"
         welcome.canDeactivate();
+        expect(confirm).toHaveBeenCalledWith('Are you sure you want to leave?'); 
         expect(welcome.fullName).toBe("Maha Singam");        
         welcome.submit();
-        welcome.canDeactivate(); 
+        expect(alert).toHaveBeenCalledWith('Welcome, Maha Singam!');
+        welcome.canDeactivate();
+        expect(confirm).toHaveBeenCalledWith('Are you sure you want to leave?');
     });
 });
 
