@@ -15,6 +15,7 @@ function sharedConfig() {
             format: 'pretty',
             tags: ''
         },
+        directConnect: true,
         capabilities: {
           'browserName': 'chrome',
           'chromeOptions': {
@@ -41,7 +42,7 @@ function sharedConfig() {
             package: require.resolve('aurelia-protractor-plugin')
         }],
 
-        allScriptsTimeout: 11000,
+        allScriptsTimeout: 88000,
         disableChecks: true,
 
         onPrepare: function() {
