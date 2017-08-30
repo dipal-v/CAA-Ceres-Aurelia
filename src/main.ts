@@ -47,7 +47,6 @@ function configurePermissions(aurelia: Aurelia, permissionStore: PermissionStore
     const oauth = aurelia.container.get(AuthService);
 
     const loginPromise = new Promise((accept, reject)=>{
-        let config = new BaseConfig();
         oauth.login().then(authenticatedUser => {
             accept(authenticatedUser);
         }).catch(guestUser => {

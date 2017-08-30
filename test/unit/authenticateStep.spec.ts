@@ -3,7 +3,6 @@ import {BaseConfig} from '../../src/oauth/baseConfig';
 import {Authentication} from '../../src/oauth/authentication';
 import {AuthService} from '../../src/oauth/oauth';
 
-
 class RoutingContextStub{
     public routes: any [];
 

@@ -102,10 +102,7 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
     new AureliaPlugin({
       includeSubModules: [
         {moduleId: 'oauth'}
-      ],
-      contextMap: {
-        'oauth': 'oauth/index.js'
-      }
+      ]
     }),
     new ModuleDependenciesPlugin({
       "oauth": [ "./test" ],
