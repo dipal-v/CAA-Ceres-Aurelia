@@ -11,14 +11,18 @@ export class Storage {
     }
     
     get(key: string): string {
-        return PLATFORM.global[this.config.storage].getItem(key);
+        return this.getStorage().getItem(key);
     }
     
     set(key: string, value: string) {
-        PLATFORM.global[this.config.storage].setItem(key, value);
+        this.getStorage().setItem(key, value);
     }
     
     remove(key: string) {
-        PLATFORM.global[this.config.storage].removeItem(key);
+        this.getStorage().removeItem(key);
+    }
+
+    getStorage(){
+        return PLATFORM.global[this.config.storage];
     }
 }

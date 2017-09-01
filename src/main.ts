@@ -16,8 +16,8 @@ import * as Bluebird from 'bluebird';
 Bluebird.config({ warnings: { wForgottenReturn: false } });
 
 export function configure(aurelia: Aurelia) {
+    aurelia.use.standardConfiguration();
     aurelia.use
-        .standardConfiguration()
         .developmentLogging()
         .plugin(PLATFORM.moduleName('oauth'), baseConfig => {
             baseConfig.configure({

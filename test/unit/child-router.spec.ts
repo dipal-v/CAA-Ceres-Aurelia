@@ -1,4 +1,7 @@
 import {ChildRouter} from '../../src/child/child-router';
+import {Child1} from '../../src/child/child1';
+import {Child2} from '../../src/child/child2';
+import {Child3} from '../../src/child/child3';
 
 class RouterStub {
     private routes;
@@ -23,6 +26,12 @@ describe('the Child Router module', () => {
         mockedRouter = new RouterStub();
         sut = new ChildRouter();
         sut.configureRouter(mockedRouter, mockedRouter);
+    });
+
+    it('children check', () => {
+        let child1 = new Child1();
+        let child2 = new Child2();
+        let child3 = new Child3();
     });
 
     it('contains a router property', () => {

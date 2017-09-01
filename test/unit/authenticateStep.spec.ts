@@ -46,7 +46,7 @@ describe('the authentication step', () => {
         callback.cancel = jest.fn();
         sut.run(routingContext, callback);
         expect(callback.cancel).toHaveBeenCalled(); 
-       expect(callback).not.toHaveBeenCalled();
+        expect(callback).not.toHaveBeenCalled();
     });
     
     it('should not do redirect if it is authenticated', () => {
