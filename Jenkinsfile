@@ -1,7 +1,7 @@
 def getColor(String buildStatus){
     if (buildStatus == 'STARTED') {
         return '#7b8e9d'
-    } else if (buildStatus == 'SUCCESS') {
+    } else if (buildStatus == 'SUCCESS :+1:') {
         return '#00990D'
     } else if (buildStatus == 'UNSTABLE') {
         return '#ffa31a'
@@ -12,7 +12,7 @@ def getColor(String buildStatus){
 
 def notifySlack(String stageName='Prepare', String buildStatus = 'STARTED') {
     // Build status of null means success.
-    buildStatus = buildStatus ?: 'SUCCESS'
+    buildStatus = buildStatus ?: 'SUCCESS :+1:'
 
     def color = getColor(buildStatus)
 
@@ -45,7 +45,7 @@ node('master') {
     stage('Test'){
       parallel (
         "Jest": { 
-            def stageName = 'Jest - Unit Test'
+            def stageName = ':jestjs: - Unit Test'
             try{
                 env.PATH = "${WORKSPACE}/node-v8.4.0-linux-x64/bin:${env.PATH}"
                 sh "npm test"
@@ -57,7 +57,7 @@ node('master') {
             }
         },
         "Cucumberjs": {
-            def stageName = 'Cucumberjs - BDD test'
+            def stageName = ':cucumberjs: - BDD test'
             try{
                 env.OAUTH_BASE = "http://localhost:3000"
                 env.OAUTH_URL = "/fakeoauth"
