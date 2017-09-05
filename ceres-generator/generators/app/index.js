@@ -22,18 +22,18 @@ module.exports = yeoman.generators.Base.extend({
     ));
 
     var prompts = [
-		{
-			type: 'input',
-			name: 'scriptAppName',
-			message: 'What would you like to name your project?',
-		default: 'ceres'
-		},
-		{
-			type: 'input',
-			name: 'appTitle',
-			message: 'What is the title for your page?',
-		default: 'Ceres: WebDev Starter Kit'
-		}
+      {
+	type: 'input',
+	name: 'scriptAppName',
+	message: 'What would you like to name your project?',
+	default: 'ceres'
+      },
+      {
+	type: 'input',
+	name: 'appTitle',
+	message: 'What is the title for your page?',
+	default: 'Ceres: WebDev Starter Kit'
+      }
     ];
 
     this.prompt(prompts, function (props) {
@@ -46,64 +46,65 @@ module.exports = yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
-		var copyFolder = function(folder) {
-			return fse.copy(path.join(this.templatePath('.'), folder),
-					        path.join(this.destinationPath('.'), folder));
-		}.bind(this);
+      var copyFolder = function(folder) {
+	return fse.copy(path.join(this.templatePath('.'), folder),
+			path.join(this.destinationPath('.'), folder));
+      }.bind(this);
 
-        var copy = function(file) {
-            this.fs.copy(this.templatePath(file),
-                         this.destinationPath(file));
-        }.bind(this);
+      var copy = function(file) {
+        this.fs.copy(this.templatePath(file),
+                     this.destinationPath(file));
+      }.bind(this);
 
-        var templateAsFile = function(file){
-		    this.fs.copyTpl(
-                this.templatePath(file),
-                this.destinationPath(file),
-			    this.props
-		    );
-        }.bind(this);
+      var templateAsFile = function(file){
+	this.fs.copyTpl(
+          this.templatePath(file),
+          this.destinationPath(file),
+	  this.props
+	);
+      }.bind(this);
 
-        var removeAFile = function(file){
-            fs.unlink(this.destinationPath(file));
-        }.bind(this);
+      var removeAFile = function(file){
+        fs.unlink(this.destinationPath(file));
+      }.bind(this);
 
-		copyFolder('src').then(
-            function()
-            {
-                removeAFile(path.join('src', 'app.ts'));
-		        templateAsFile(path.join('src', 'app.ts'));
-            });
-		copyFolder('images');
-		copyFolder('build');
-		copyFolder('fonts');
-		copyFolder('styles');
-		copyFolder('test');
+      copyFolder('src').then(
+        function()
+        {
+          removeAFile(path.join('src', 'app.ts'));
+	  templateAsFile(path.join('src', 'app.ts'));
+        });
+      copyFolder('images');
+      copyFolder('fonts');
+      copyFolder('styles');
+      copyFolder('test').then(
+        function()
+        {
+          removeAFile(path.join('test', 'unit', 'app.spec.ts'));
+	  templateAsFile(path.join('test', 'unit', 'app.spec.ts'));
+        });
+      copyFolder('static');
 
-		templateAsFile('package.json');
-		templateAsFile('index.html');
+      templateAsFile('package.json');
 
-		copy('.editorconfig');
-		copy('.gitignore');
-		copy('.npmignore');
-		copy('config.js');
-		copy('dockerfile');
-		copy('favicon.ico');
-		copy('gulpfile.js');
-		copy('index.js');
-		copy('karma.conf.js');
-		copy('protractor.conf.js');
-		copy('tsconfig.e2e.json');
-		copy('tsconfig.json');
-		copy('tslint.json');
-		copy('typings.json');
-		copy('wallaby.js');
+      copy('.editorconfig');
+      copy('.gitignore');
+      copy('.npmignore');
+      copy('config.js');
+      copy('dockerfile');
+      copy('docker-compose.yml');
+      copy('Dockerfile.development'),
+      copy('index.ejs');
+      copy('package-scripts.js');
+      copy('tsconfig.json');
+      copy('tslint.json');
+      copy('wallaby.js');
+      copy('webpack.config.js');
 
     }
   },
 
   install: function () {
       this.runInstall('npm');
-      this.runInstall('jspm');
   }
 });

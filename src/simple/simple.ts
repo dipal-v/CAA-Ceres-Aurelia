@@ -38,18 +38,18 @@ export class Simple {
 
   public onRestrictionClicked(event) {
       if (event.column.colId === 'restrictions' && event.data.restrictions) {
-          alert('single clicked ' + event.data.restrictions.restriction[0].description);
+          window.alert('single clicked ' + event.data.restrictions.restriction[0].description);
       }
   }
 
   public onStatusDbClicked(event) {
       if (event.column.colId === 'status') {
-          alert('double clicked ' + event.data.status);
+          window.alert('double clicked ' + event.data.status);
       }
   }
 
   public anchor_callback(event) {
-	  alert("Called from anchor click.");
+	  window.alert("Called from anchor click.");
   }
 
   public showWarn () {

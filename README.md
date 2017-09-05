@@ -1,6 +1,6 @@
 # CAA-Ceres-Aurelia (typescript)
 
-Based on aurelia-skeleton-navigation (typescript)
+Based on aurelia-skeleton-navigation-webpack (typescript)
 
 
 #TODO
@@ -9,241 +9,127 @@ Based on aurelia-skeleton-navigation (typescript)
 * Create distributable build
 * 
 
-
 # Original Readme:
 
 
 ## Running The App
 
-To run the app, follow these steps.
+Before you start, make sure you have a recent version of [NodeJS](http://nodejs.org/) environment *>=6.0* with NPM 3 or Yarn.
 
-1. Ensure that [NodeJS](http://nodejs.org/) is installed. This provides the platform on which the build tooling runs.
-2. From the project folder, execute the following command:
-
-  ```shell
-  npm install
-  ```
-3. Ensure that [Gulp](http://gulpjs.com/) is installed globally. If you need to install it, use the following command:
-
-  ```shell
-  npm install -g gulp
-  ```
-  > **Note:** Gulp must be installed globally, but a local version will also be installed to ensure a compatible version is used for the project.
-4. Ensure that [jspm](http://jspm.io/) is installed globally. If you need to install it, use the following command:
-
-  ```shell
-  npm install -g jspm
-  ```
-  > **Note:** jspm must be installed globally, but a local version will also be installed to ensure a compatible version is used for the project.
-
-  > **Note:** jspm queries GitHub to install semver packages, but GitHub has a rate limit on anonymous API requests. It is advised that you configure jspm with your GitHub credentials in order to avoid problems. You can do this by executing `jspm registry config github` and following the prompts. If you choose to authorize jspm by an access token instead of giving your password (see GitHub `Settings > Personal Access Tokens`), `public_repo` access for the token is required.
-5. Install the client-side dependencies with jspm:
-
-  ```shell
-  jspm install -y
-  ```
-  >**Note:** Windows users, if you experience an error of "unknown command unzip" you can solve this problem by doing `npm install -g unzip` and then re-running `jspm install`.
-6. To run the app, execute the following command:
-
-  ```shell
-  gulp watch
-  ```
-7. Browse to [http://localhost:9000](http://localhost:9000) to see the app. You can make changes in the code found under `src` and the browser should auto-refresh itself as you save files.
-
-> The Skeleton App uses [BrowserSync](http://www.browsersync.io/) for automated page refreshes on code/markup changes concurrently across multiple browsers. If you prefer to disable the mirroring feature set the [ghostMode option](http://www.browsersync.io/docs/options/#option-ghostMode) to false
-
-## Running The App under Electron
-
-#### Note:
-The first five steps below are identical to the first five steps for running this app the "standard' way, using the jspm / systemjs tooling. The difference is in the command to run the app, where the standard `gulp watch` command is replaced by the sequence of two commands:
+From the project folder, execute the following commands:
 
 ```shell
-gulp build
-electron index.js
+npm install # or: yarn install
 ```
 
-To run the app under [Electron](http://electron.atom.io), follow these steps.
+This will install all required dependencies, including a local version of Webpack that is going to
+build and bundle the app. There is no need to install Webpack globally. 
 
-1. Install [Electron](http://electron.atom.io)
+To run the app execute the following command:
 
-  ```shell
-  npm install electron --save-dev
+```shell
+npm start # or: yarn start
 ```
 
-2. From the project folder, execute the following command:
+This command starts the webpack development server that serves the build bundles.
+You can now browse the skeleton app at http://localhost:8080 (or the next available port, notice the output of the command). Changes in the code
+will automatically build and reload the app.
 
-  ```shell
-  npm install
-  ```
+### Running with Hot Module Reload
 
-3. Ensure that [Gulp](http://gulpjs.com/) is installed globally. If you need to install it, use the following command:
+If you wish to try out the experimental Hot Module Reload, you may run your application with the following command:
 
-  ```shell
-  npm install -g gulp
-  ```
-  > **Note:** Gulp must be installed globally, but a local version will also be installed to ensure a compatible version is used for the project.
-
-4. Ensure that [jspm](http://jspm.io/) is installed globally. If you need to install it, use the following command:
-
-  ```shell
-  npm install -g jspm
-  ```
-  > **Note:** jspm must be installed globally, but a local version will also be installed to ensure a compatible version is used for the project.
-
-  > **Note:** jspm queries GitHub to install semver packages, but GitHub has a rate limit on anonymous API requests. It is advised that you configure jspm with your GitHub credentials in order to avoid problems. You can do this by executing `jspm registry config github` and following the prompts. If you choose to authorize jspm by an access token instead of giving your password (see GitHub `Settings > Personal Access Tokens`), `public_repo` access for the token is required.
-
-5. Install the client-side dependencies with jspm:
-
-  ```shell
-  jspm install -y
-  ```
-  >**Note:** Windows users, if you experience an error of "unknown command unzip" you can solve this problem by doing `npm install -g unzip` and then re-running `jspm install`.
-
-6. To build the app execute the following command (this will give you a dist directory)
-
- ```shell
-    gulp build
- ```
-
-7. To start the app, execute the following command:
-
-  ```shell
-  electron index.js
-  ```
->**Note:** If typing the command `electron index.js` is too much for you change this line in package.json from `"main": "dist/main.js",` to `"main": "index.js",`
-> Then, you can invoke electron by just typing
- ```shell
-   electron .
+```shell
+npm start -- webpack.server.hmr
 ```
 
-## Packaging The App Using Electron-Packager
+## Feature configuration
 
->**Note:** The electron-packager package relies on `"main"` in package.json to know which JS file to use to start the application. To make this work with electron-packager change this line in package.json from `"main": "dist/main.js",` to `"main": "index.js",`
-
-1. Follow steps 1-6 in the previous section (Running The App under Electron).
-
-2. Install electron-packager
-
-  ```shell
-  npm install electron-packager -g
-  ```
-  
-3. Run the command:
-
-  ```shell
-  electron-packager <sourcedir> <appname> --platform=<platform> --arch=<arch> --version <electron version #> [optional flags...]
-  ```
-Include the `--asar` option to create an [asar archive](http://electron.atom.io/docs/tutorial/application-packaging/) from your app.
-
-By default, electron-packager will place the packaged app in a folder under the source folder with the naming convention of `<appname>-<platform>-<arch>`.
-
-See the [electron-packager](https://github.com/electron-userland/electron-packager) readme for more details on options.
-
+Most of the configuration will happen in the `webpack.config.js` file.
+There, you may configure advanced loader features or add direct SASS or LESS loading support.
 
 ## Bundling
-Bundling is performed by [Aurelia Bundler](http://github.com/aurelia/bundler). A gulp task is already configured for that. Use the following command to bundle the app:
 
-  ```shell
-    gulp bundle
-  ```
-
-You can also unbundle using the command bellow:
-
-  ```shell
-    gulp unbundle
-  ```
-
-To start the bundled app, execute the following command:
-
-  ```shell
-    gulp serve-bundle
-  ```
-#### Configuration
-The configuration is done by ```bundles.js``` file.
-##### Optional
-Under ```options``` of ```dist/aurelia``` add ```rev: true``` to add bundle file revision/version.
-
-## Running The Unit Tests
-
-To run the unit tests, first ensure that you have followed the steps above in order to install all dependencies and successfully build the library. Once you have done that, proceed with these additional steps:
-
-1. Ensure that the [Karma](http://karma-runner.github.io/) CLI is installed. If you need to install it, use the following command:
-
-  ```shell
-  npm install -g karma-cli
-  ```
-2. Install Aurelia libs for test visibility:
+To build an optimized, minified production bundle (output to /dist) execute:
 
 ```shell
-jspm install aurelia-framework
-jspm install aurelia-http-client
-jspm install aurelia-router
+npm start -- build
 ```
-3. You can now run the tests with this command:
 
-  ```shell
-  karma start
-  ```
+To build 
 
-## Running The E2E Tests
-
-We are using cucumber.js to orchestrate our behavior-driven tests. If you are not familiar with it, you can find [its tutorial on the github](CAA-Ceres-Aurelia/test/e2e/)
-The tests are actually performed by [Protractor](http://angular.github.io/protractor/#/) with [aurelia-protractor-plugin](https://github.com/aurelia/protractor-plugin).
-Meanwhile, our tests are written in typescripts and are executed by [ts-node](https://github.com/TypeStrong/ts-node).
-
-Make sure your app runs and is accessible
+To test either the development or production build execute:
 
 ```shell
-gulp watch
+npm start -- serve
 ```
 
-Here are the steps to run the e2e tests:
+The production bundle includes all files that are required for deployment.
+
+
+## Running The Tests
+
+This skeleton provides three frameworks for running tests.
+
+You can choose one or two and remove the other, or even use all of them for different types of tests.
+
+By default, both Jest and Karma are configured to run the same tests with Jest's matchers (see Jest documentation for more information).
+
+If you wish to only run certain tests under one of the runners, wrap them in an `if`, like this:
+
+```js
+if (jest) {
+  // since only jest supports creating snapshot:
+  it('should render correctly', () => {
+    expect(document.body.outerHTML).toMatchSnapshot();
+  });
+}
+```
+
+### Jest + Jasmine 2
+
+Jest is a powerful unit testing runner and framework.
+It runs really fast, however the tests are run under NodeJS, not the browser.
+This means there might be some cases where something you'd expect works in reality, but fails in a test. One of those things will be SVG, which isn't supported under NodeJS. However, the framework is perfect for doing unit tests of pure functions, and works pretty well in combination with `aurelia-testing`.
+
+To create new Jest tests, create files with the extension `.spec.ts`, either in the `src` directory or in the `test/unit` directory.
+
+To run the Jest unit tests, run:
 
 ```shell
-
-$ cd test/e2e
-$ npm install
-$ ./node_modules/.bin/webdriver-manager update
-$ ./node_modeles/.bin/protractor protractor.conf.js
+npm test
 ```
 
-For jenkins, please run the E2E test against ppwebtest01.inmarsat.com, hence the last command becomes:
+To run the Jest watcher (re-runs tests on changes), run:
 
 ```shell
-$ ./node_modeles/.bin/protractor protractor.demo.conf.js
+npm start -- test.jest.watch
 ```
 
-## Exporting bundled production version
-A gulp task is already configured for that. Use the following command to export the app:
 
-  ```shell
-    gulp export
-  ```
-The app will be exported into ```export``` directory preserving the directory structure.
+### Protractor (E2E / integration tests)
 
-To start the exported app, execute the following command:
+Integration tests can be performed with [Protractor](http://angular.github.io/protractor/#/).
 
-  ```shell
-    gulp serve-export
-  ```
+1. Place your E2E-Tests into the folder ```test/e2e``` and name them with the extension `.e2e.ts`.
 
-## Make a tar.gz on top of exporting task
+2. Run the tests by invoking
 
-A gulp task has been added to do export and tar ball in one go:
-
-  ```shell
-     gulp distribute
-  ```
-
-You will get ```caa-ceres-aurelia-1.0.0.tar.gz``` in your current folder. And the tar 
-ball name is derived from package.json: package_name-package_version.tar.gz .
+```shell
+$ source environment-test.sh
+$ npm start -- e2e
+```
 
 ## Generate an new app
+
+```
+npm install -g gulp
+```
 
 the gulp task is:
 
 ```shell
-gulp generator
+gulp
 ```
 
 And then cd `ceres-generator` and issue:
@@ -256,10 +142,26 @@ Then leave `ceres-generator` folder and go somewhere else to create your project
 Then issue: 
 
 ```shell
-yo
+$ yo
+? 'Allo Chenfu! What would you like to do? (Use arrow keys)
+  Run a generator
+❯ Aurelia Ceres 
+  ──────────────
+  Update your generators 
+  Install a generator 
+  Find some help 
+  Get me out of here! 
+(Move up and down to reveal more choices)
 ```
 
 And choose 'Aurelia Ceres'
+
+
+# The following items need re-work
+
+## Exporting bundled production version
+
+<<missing>>
 
 ## Run it inside a Docker container
 

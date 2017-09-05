@@ -17,13 +17,13 @@ export class Messages {
         this.message = null;
     }
 
-    private attached() {
+    public attached() {
         this.subscriber = this.ea.subscribe('messages', response => {
             this.message = response;
         });
     }
 
-    private detached() {
+    public detached() {
         this.subscriber.dispose();
     }
 

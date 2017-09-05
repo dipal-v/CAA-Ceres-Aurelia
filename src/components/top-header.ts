@@ -1,5 +1,5 @@
-import {AuthService} from '../services/oauth';
-import {OAuthUser} from '../services/oauth-user';
+import {AuthService} from '../oauth/oauth';
+import {OAuthUser} from '../oauth/oauth-user';
 import {inject} from 'aurelia-framework';
 
 
