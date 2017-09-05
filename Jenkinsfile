@@ -29,6 +29,8 @@ node('master') {
         def stageName = 'Prepare'
         try{
             notifySlack()
+            sh "rm -rf node-v8.4.0-linux-x64/"
+            sh "rm -rf node_modules"
             checkout scm
             sh "tar xf dependencies/node-v8.4.0-linux-x64.tar.xz"
             env.PATH = "${WORKSPACE}/node-v8.4.0-linux-x64/bin:${env.PATH}"
@@ -61,9 +63,6 @@ node('master') {
                 env.OAUTH_URL = "/fakeoauth"
                 env.OAUTH_CLIENTID = "dummy"
                 env.PATH = "${WORKSPACE}/node-v8.4.0-linux-x64/bin:${env.PATH}"
-                env.NACL_PLUGIN_DEBUG = "1"
-                env.NACL_SRPC_DEBUG = "255"
-                env.NACLVERBOSITY = "255"
                 sh "npm start -- e2e"
             }catch(e){
                currentBuild.result = 'FAILURE'
@@ -77,7 +76,10 @@ node('master') {
     stage('Deploy'){
         def stageName = 'Deploy - Cleanning up'
         try{
-            sh "rm -rf node-v8.4.0-linux-x64/"
+            junit 'junit.xml'
+            sh "cat protractor-report.json | ./node_modules/.bin/cucumber-junit > protractor-junit.xml"
+            junit 'protractor-junit.xml'
+            step([$class: 'CoberturaPublisher', autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: 'test/coverage-jest/cobertura-coverage.xml', failUnhealthy: false, failUnstable: false, maxNumberOfBuilds: 0, onlyStable: false, sourceEncoding: 'ASCII', zoomCoverageChart: false])
         }catch(e){
            currentBuild.result = 'FAILURE'
             throw e

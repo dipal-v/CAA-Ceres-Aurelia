@@ -55,7 +55,8 @@
       "json",
       "lcov",
       "text",
-      "html"
+      "html",
+      "cobertura"
     ],
     "mapCoverage": true
   },
@@ -81,6 +82,7 @@
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
     "cucumber": "^2.3.1",
+    "cucumber-junit": "^1.7.0",
     "del": "^2.2.2",
     "es6-module-loader": "^0.17.11",
     "expose-loader": "^0.7.3",

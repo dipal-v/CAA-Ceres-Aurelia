@@ -12,7 +12,7 @@ function sharedConfig() {
             require: [
                 path.resolve(process.cwd(), './test/e2e/src/*.ts')
             ],
-            format: 'pretty',
+            format: 'json:protractor-report.json',
             tags: ''
         },
         directConnect: true,
