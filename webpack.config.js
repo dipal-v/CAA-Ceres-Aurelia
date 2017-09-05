@@ -105,7 +105,6 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
       ]
     }),
     new ModuleDependenciesPlugin({
-      "oauth": [ "./test" ],
       "aurelia-datatable": [ "./datatable", "./bootstrap/datatable.html" ],
       "aurelia-pager": ["./pager", "./bootstrap/pager.html"],
       "aurelia-permission": ["./permission", "./permission-filter"]
