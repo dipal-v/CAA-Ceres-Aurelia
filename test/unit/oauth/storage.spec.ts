@@ -1,5 +1,5 @@
-import {Storage} from '../../src/oauth/storage';
-import {BaseConfig} from '../../src/oauth/baseConfig';
+import {Storage} from '../../../src/oauth/storage';
+import {BaseConfig} from '../../../src/oauth/baseConfig';
 
 class StorageStub{
     localStore : {}

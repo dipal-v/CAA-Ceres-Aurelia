@@ -1,4 +1,4 @@
-import {SpaceToHyphenValueConverter} from '../../src/components/space-to-hyphen';
+import {SpaceToHyphenValueConverter} from '../../../src/components/space-to-hyphen';
 
 describe('the space to hyphen value converter component', () => {
     

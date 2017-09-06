@@ -36,13 +36,11 @@ export class AuthService {
         return new Promise((resolve, reject) => {
             client.post(this.config.oauthUrl, 'client_id='+this.config.clientId+'&response_type=token&redirect_uri='+this.config.redirectUrl)
                 .then(data => {
-                    console.log(data);
                     // Add this line will enable all menu
                     this.user.permissions = ['AuthenticatedUser'];
                     this.authenticated = true;
                     resolve(this.user);
                 }).catch(error => {
-                    console.log(error);
                     reject(this.user);
                 });
         });

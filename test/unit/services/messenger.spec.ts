@@ -1,4 +1,4 @@
-import {Messenger} from '../../src/services/messenger';
+import {Messenger} from '../../../src/services/messenger';
 import {EventAggregator} from 'aurelia-event-aggregator';
 
 describe('the Messenger service', () => {

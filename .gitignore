@@ -12,3 +12,5 @@ test/e2e/dist
 .vs
 .vscode
 *~
+junit.xml
+test/coverage-jest/

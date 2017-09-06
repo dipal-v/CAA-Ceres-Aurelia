@@ -1,4 +1,4 @@
-import {Status} from '../../src/components/status';
+import {Status} from '../../../src/components/status';
 
 describe('status component', () => {
     

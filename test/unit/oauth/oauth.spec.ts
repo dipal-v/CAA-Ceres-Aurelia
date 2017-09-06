@@ -1,6 +1,6 @@
-import {AuthService} from '../../src/oauth/oauth';
-import {BaseConfig} from '../../src/oauth/baseConfig';
-import {Authentication} from '../../src/oauth/authentication';
+import {AuthService} from '../../../src/oauth/oauth';
+import {BaseConfig} from '../../../src/oauth/baseConfig';
+import {Authentication} from '../../../src/oauth/authentication';
 
 describe('the login', () => {
     let authService;

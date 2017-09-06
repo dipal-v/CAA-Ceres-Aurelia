@@ -9,15 +9,11 @@ export class BaseConfig {
      */
     configure(incoming: {}) {
         for (let key in incoming) {
-            if (incoming.hasOwnProperty(key)) {
-                const value = incoming[key];
+            const value = incoming[key];
 
-                if (value !== undefined) {
-                    if (Array.isArray(value) || typeof value !== 'object' || value === null) {
-                        this[key] = value;
-                    } else {
-                        extend(true, this[key], value);
-                    }
+            if (value !== undefined) {
+                if (Array.isArray(value) || typeof value !== 'object' || value === null) {
+                    this[key] = value;
                 }
             }
         }

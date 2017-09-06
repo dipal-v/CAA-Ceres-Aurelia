@@ -1,5 +1,5 @@
-import {Users} from '../../src/users/users';
-import {UserService} from '../../src/services/user-service';
+import {Users} from '../../../src/users/users';
+import {UserService} from '../../../src/services/user-service';
 
 class HttpStub {
     public items: any[];
@@ -10,7 +10,16 @@ class HttpStub {
         });
     }
 
-    public configure(func) { return 0; }
+    public configure(func) { 
+        func({
+            useStandardConfiguration : () => {
+                return {
+                    withBaseUrl :  (str) =>{}
+                }
+            }
+        });
+        return 0; 
+    }
 }
 
 function createHttpStub(): any {

@@ -1,4 +1,4 @@
-import{Anchor} from '../../src/components/anchor'
+import{Anchor} from '../../../src/components/anchor'
 import {Container} from 'aurelia-dependency-injection';
 
 describe('the anchor component', () => {

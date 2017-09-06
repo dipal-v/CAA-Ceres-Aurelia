@@ -1,7 +1,7 @@
-import {ChildRouter} from '../../src/child/child-router';
-import {Child1} from '../../src/child/child1';
-import {Child2} from '../../src/child/child2';
-import {Child3} from '../../src/child/child3';
+import {ChildRouter} from '../../../src/child/child-router';
+import {Child1} from '../../../src/child/child1';
+import {Child2} from '../../../src/child/child2';
+import {Child3} from '../../../src/child/child3';
 
 class RouterStub {
     private routes;

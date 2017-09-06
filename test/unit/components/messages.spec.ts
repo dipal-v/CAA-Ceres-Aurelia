@@ -1,4 +1,4 @@
-import {Messages} from '../../src/components/messages';
+import {Messages} from '../../../src/components/messages';
 import {EventAggregator} from 'aurelia-event-aggregator';
 
 describe('the Messages component', () => {

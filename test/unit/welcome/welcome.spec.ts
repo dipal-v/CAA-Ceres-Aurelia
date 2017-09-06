@@ -1,5 +1,5 @@
-import {Welcome} from '../../src/welcome/welcome';
-import {UpperValueConverter} from '../../src/welcome/welcome';
+import {Welcome} from '../../../src/welcome/welcome';
+import {UpperValueConverter} from '../../../src/welcome/welcome';
 
 describe('the Welcome module', () => {
     

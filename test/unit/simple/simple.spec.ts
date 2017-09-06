@@ -1,6 +1,6 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
-import { Messenger} from '../../src/services/messenger';
-import { Simple} from '../../src/simple/simple';
+import { Messenger} from '../../../src/services/messenger';
+import { Simple} from '../../../src/simple/simple';
 
 describe('the simple grid', () => {
     let ea;
