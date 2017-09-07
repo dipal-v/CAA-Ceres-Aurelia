@@ -1,4 +1,4 @@
-# features/documentation.feature
+# features/simple.feature
 Feature: Example feature
   As a user of ceres
   I want to browse around

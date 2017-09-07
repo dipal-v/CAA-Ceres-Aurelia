@@ -10,7 +10,7 @@ function sharedConfig() {
         cucumberOpts: {
             compiler: "ts:ts-node/register",
             require: [
-                path.resolve(process.cwd(), './test/e2e/src/*.ts')
+                path.resolve(process.cwd(), './test/e2e/src/*/*.ts')
             ],
             format: 'json:protractor-report.json',
             tags: ''
