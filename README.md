@@ -66,6 +66,13 @@ npm start -- serve
 
 The production bundle includes all files that are required for deployment.
 
+## Documentation
+
+```shell
+npm start -- doc
+```
+
+And the `documentation` folder will have all you need.
 
 ## Running The Tests
 
@@ -193,7 +200,7 @@ In addition, ```export.js``` file is available for including individual files.
 After building the app with
 
 ```shell
-gulp export
+npm start -- build
 ```
 
 you can build a container image and run it with the following commands:
