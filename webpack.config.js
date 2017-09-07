@@ -16,7 +16,7 @@ const title = 'Ceres Navigation Skeleton';
 const outDir = path.resolve(__dirname, 'dist');
 const srcDir = path.resolve(__dirname, 'src');
 const nodeModulesDir = path.resolve(__dirname, 'node_modules');
-const demoBaseUrl = '/caa-ceres-aurelia-webpack/';
+const demoBaseUrl = '/caa-ceres-aurelia/';
 const localBaseUrl = '/';
 
 

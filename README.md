@@ -56,6 +56,10 @@ To build an optimized, minified production bundle (output to /dist) execute:
 npm start -- build
 ```
 
+For development
+
+npm start -- webpack.build.development
+
 To build 
 
 To test either the development or production build execute:
