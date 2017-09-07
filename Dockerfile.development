@@ -4,9 +4,9 @@ FROM node:6.11
 ENV HOME=/code
 ENV NPM_CONFIG_LOGLEVEL warn
 
-RUN npm install -g nps
-
 WORKDIR $HOME
+
+RUN npm install -g nps
 
 COPY . $HOME
 
