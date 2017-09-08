@@ -1,20 +1,28 @@
 import {autoinject} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-fetch-client';
 
+/**
+* The git users service
+*/
 @autoinject
 export class UserService {
 
-  constructor(private http: HttpClient) {
-    http.configure(config => {
-      config
-        .useStandardConfiguration()
-        .withBaseUrl('https://api.github.com/');
-    });
-  }
+    /**
+    * git user service constructor
+    */
+    constructor(private http: HttpClient) {
+        http.configure(config => {
+            config
+            .useStandardConfiguration()
+            .withBaseUrl('https://api.github.com/');
+        });
+    }
 
-  public getUsers() {
-    return this.http.fetch('users')
-                    .then(response => response.json());
-
-  }
+    /**
+     * return all the users
+    */
+    public getUsers() {
+        return this.http.fetch('users')
+        .then(response => response.json());
+    }
 }

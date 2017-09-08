@@ -1,7 +1,13 @@
+/**
+* The Space to Hyphen Value Converter
+*/
 export class SpaceToHyphenValueConverter{
 
-  toView(value){
-    return value.replace(/\s+/g, '-');
-  }
+    /**
+    * override to view 
+    */
+    toView(value){
+        return value.replace(/\s+/g, '-');
+    }
 
 }

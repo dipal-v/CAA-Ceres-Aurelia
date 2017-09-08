@@ -5,16 +5,31 @@ import {AuthenticateStep} from './oauth/authenticateStep';
 import {AuthService} from './oauth/oauth';
 import {PLATFORM} from 'aurelia-pal';
 
-
+/**
+* The App
+*/
 @inject(AuthService)
 export class App {
+    /**
+    * The router
+    */
     public router: Router;
+
+    /**
+    * The authenticetion service
+    */
     private authService: AuthService;
 
+    /**
+    * The App construcor
+    */
     constructor(authService: AuthService) {
         this.authService = authService;
     }
 
+    /**
+    * The App configure router
+    */
     public configureRouter(config: RouterConfiguration, router: Router) {
         config.title = 'CAA-Ceres-Aurelia';
         config.addPipelineStep('authorize', AuthenticateStep);
