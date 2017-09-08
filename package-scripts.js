@@ -4,7 +4,11 @@ const {config: {port: E2E_PORT}} = require('./test/e2e/protractor.conf')
 module.exports = {
   scripts: {
       default: 'nps webpack',
-      doc: 'compodoc -p tsconfig.json',
+      doc: {
+          default: 'compodoc -p tsconfig.json',
+          serve: 'compodoc -p tsconfig.json -s',
+          watch: 'compodoc -p tsconfig.json -sw'
+      },
     test: {
       default: 'nps test.jest',
       jest: {

@@ -20,7 +20,7 @@
   "scripts": {
     "start": "nps",
     "test": "nps test",
-      "doc": "nps doc"
+    "doc": "nps doc"
   },
   "jest": {
     "modulePaths": [
@@ -80,7 +80,7 @@
     "awesome-typescript-loader": "^3.2.3",
     "browser-sync": "^2.17.5",
     "chromedriver": "^2.31.0",
-    "compodoc": "0.0.41",
+    "@compodoc/compodoc": "1.0.1",
     "conventional-changelog": "1.1.0",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",

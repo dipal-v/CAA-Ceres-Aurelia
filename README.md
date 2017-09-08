@@ -3,12 +3,6 @@
 Based on aurelia-skeleton-navigation-webpack (typescript)
 
 
-#TODO
-
-* Update tests
-* Create distributable build
-* 
-
 # Original Readme:
 
 
@@ -77,6 +71,12 @@ npm start -- doc
 ```
 
 And the `documentation` folder will have all you need.
+
+And if you do
+
+```shell
+npm start -- doc.watch
+```
 
 ## Running The Tests
 

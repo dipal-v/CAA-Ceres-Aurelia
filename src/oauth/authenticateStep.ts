@@ -3,13 +3,20 @@ import {Redirect} from 'aurelia-router';
 import {AuthService} from './oauth';
 
 
+/**
+ * Check each navigation step where the user should be authenticated
+ */
 @inject(AuthService)
 export class AuthenticateStep {
     private authService: AuthService;
     constructor(authService: AuthService) {
         this.authService = authService;
     }
-    
+
+    /**
+     * This function is called when user navigates through
+     * the routes
+     */
     run(routingContext, next) {
         const isLoggedIn = this.authService.authenticated;
         const loginRoute = this.authService.config.loginRoute;

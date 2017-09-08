@@ -6,7 +6,11 @@ import {HttpClient} from 'aurelia-http-client';
 import {AuthInterceptor} from './oauthInterceptor';
 import {OAuthUser} from './oauth-user';
 
-
+/**
+ * Open Authentication 2.0 Client Implimentation
+ * 
+ * It expose the oauth functionality as service
+ */
 @inject(Authentication, BaseConfig)
 export class AuthService {
     private authentication: Authentication;
@@ -21,10 +25,19 @@ export class AuthService {
 
     }
 
+    /**
+     *
+     * @returns {OAuthUser} A oauth user
+     */
     getUser(){
         return this.user;
     }
 
+    
+    /**
+     * Login the current user via oauth protocol
+     * @returns {Promise<OAuthUser>}
+     */
     login() : Promise<OAuthUser> {
         let client = new HttpClient();
         client.configure(config => {

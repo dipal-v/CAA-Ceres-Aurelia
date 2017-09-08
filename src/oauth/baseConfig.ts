@@ -1,6 +1,15 @@
 import extend from 'extend';
 
 
+/**
+ * Configure oauth component
+ * 
+ * Important fields are: 
+ *    baseUrl
+ *    oauthUrl
+ *    redirectUrl
+ *    clientId
+ */
 export class BaseConfig {
 
     /**

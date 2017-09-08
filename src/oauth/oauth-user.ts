@@ -1,3 +1,8 @@
+/**
+ * User representation
+ * 
+ * Its username, fullname and permissions
+ */
 export class OAuthUser {
     public username: string;
     public fullname: string;
