@@ -78,6 +78,13 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
         // because Aurelia would try to require it again in runtime
         use: cssRules,
       },
+      {
+        test: /\.scss$/i,
+        issuer: [{ test: /\.html$/i }],
+        // CSS required in templates cannot be extracted safely
+        // because Aurelia would try to require it again in runtime
+        use: ['sass-loader']
+      },
       { test: /\.html$/i, loader: 'html-loader' },
 		{ test: /\.ts$/i, loader: 'ts-loader', exclude: nodeModulesDir },
       { test: /\.json$/i, loader: 'json-loader' },

@@ -5,7 +5,7 @@
    <div class="menu-content-container" style="border-top:0px">
 
       <div class="container container-board">
-  <section class="au-animate">
+        <section class="au-animate">
 
         <messages></messages>
         <div class="filter-panel">
@@ -19,8 +19,15 @@
               <!-- Page content -->
               <h2>Description</h2>
               <p>This is a simple ceres module. No second level menus, No left hand menus.</p>
+
+              <h2>Exposing click event from a custom element</h2>
               <anchor data="anchor element" single.delegate="anchor_callback()"></anchor>
 
+              <p>
+              <h2>Slot in composition example</h2>
+              <require from="components/slot-in-tag.html"></require>
+              <slot-in-tag color="#18b4ce">slot in composition</slot-in-tag><p>
+              <a href="https://github.com/EisenbergEffect/aurelia-composition-demo">reference</a>
               <h2>Test messenger service</h2>
               <button click.delegate="showWarn()">show warning</button>
                <button click.delegate="showInfo()">show info</button>
