@@ -91,7 +91,6 @@ export class App {
         },{
             route: 'login',
             name: 'xyz',
-	    nav: true,
             moduleId: PLATFORM.moduleName('login/login'),
             title: "login"
         }]);
