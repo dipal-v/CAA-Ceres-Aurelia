@@ -25,6 +25,25 @@ To run the app execute the following command:
 npm start # or: yarn start
 ```
 
+### for development
+
+Open another shell
+
+```shell
+$ ./node_modules/.bin/json-server dummy.json
+```
+
+Then in your current shell
+
+```shell
+$ source environment-test.sh
+$ npm start
+```
+
+For ppwetest01, please put this one:
+
+export PUBLIC_PATH='/caa-ceres-aurelia/'
+
 This command starts the webpack development server that serves the build bundles.
 You can now browse the skeleton app at http://localhost:8080 (or the next available port, notice the output of the command). Changes in the code
 will automatically build and reload the app.

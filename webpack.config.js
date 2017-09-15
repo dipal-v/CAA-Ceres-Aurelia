@@ -16,9 +16,7 @@ const title = 'Ceres Navigation Skeleton';
 const outDir = path.resolve(__dirname, 'dist');
 const srcDir = path.resolve(__dirname, 'src');
 const nodeModulesDir = path.resolve(__dirname, 'node_modules');
-const demoBaseUrl = '/caa-ceres-aurelia/';
-const localBaseUrl = '/';
-
+const publicPath = process.env.PUBLIC_PATH
 
 const cssRules = [
   { loader: 'css-loader' },
@@ -44,7 +42,7 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
   },
   output: {
     path: outDir,
-    publicPath: production? demoBaseUrl : localBaseUrl,
+    publicPath: publicPath,
     filename: production ? '[name].[chunkhash].bundle.js' : '[name].[hash].bundle.js',
     sourceMapFilename: production ? '[name].[chunkhash].bundle.map' : '[name].[hash].bundle.map',
     chunkFilename: production ? '[name].[chunkhash].chunk.js' : '[name].[hash].chunk.js',
@@ -135,12 +133,10 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
         removeComments: true,
         collapseWhitespace: true
       } : undefined,
-      metadata: production? {
+      metadata: {
         // available in index.ejs //
-        title, server, demoBaseUrl
-      } : {
-        title, server, localBaseUrl
-	  }
+        title, server, publicPath
+      }
     }),
     new CopyWebpackPlugin([
       { from: 'static/favicon.ico', to: 'favicon.ico' }
