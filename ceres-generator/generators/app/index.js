@@ -86,6 +86,8 @@ module.exports = yeoman.generators.Base.extend({
       copyFolder('static');
 
       templateAsFile('package.json');
+      templateAsFile('webpack.config.js');
+      templateAsFile('README.md');
 
       copy('.editorconfig');
       copy('.gitignore');
@@ -98,8 +100,10 @@ module.exports = yeoman.generators.Base.extend({
       copy('package-scripts.js');
       copy('tsconfig.json');
       copy('tslint.json');
+      copy('environment-test.sh');
+      copy('dummy.json');
       copy('wallaby.js');
-      copy('webpack.config.js');
+
 
     }
   },

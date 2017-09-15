@@ -28,13 +28,12 @@ const srcs = [
   'dockerfile',
   'Dockerfile.development',
   'index.ejs',
-  'package.json',
   'package-scripts.js',
-  'README.md',
   'tsconfig.json',
   'tslint.json',
   'wallaby.js',
-  'webpack.config.js'
+  'environment-test.sh',
+  'dummy.json'
 ];
 
 
@@ -48,6 +47,13 @@ gulp.task('generator-copy', function(){
     .pipe(gulp.dest(paths.generatorBase));
   gulp.src(path.join('test', 'unit', 'app.spec.ts'), {base: '.'})
     .pipe(replace(/CAA-Ceres-Aurelia/, '<%= appTitle %>'))
+    .pipe(gulp.dest(paths.generatorBase));
+  gulp.src('webpack.config.js', {base: '.'})
+    .pipe(replace(/Ceres Navigation Skeleton/, '<%= appTitle %>'))
+    .pipe(gulp.dest(paths.generatorBase));
+  gulp.src('README.md', {base: '.'})
+    .pipe(replace(/CAA-Ceres-Aurelia/, '<%= scriptAppName %>'))
+    .pipe(replace(/aurelia-skeleton-navigation-webpack/, 'Ceres'))
     .pipe(gulp.dest(paths.generatorBase));
 
 });
