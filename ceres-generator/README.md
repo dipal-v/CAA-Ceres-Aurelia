@@ -1,7 +1,13 @@
-# generator-ceres 
+# ceres-generator
 
 > [Yeoman](http://yeoman.io) generator
 
+## Tutorial
+
+[![step 1](https://github.com/Inmarsat-itcloudservices/CAA-Ceres-Aurelia/blob/develop/ceres-generator/tutorials/screencasts/Ceres-Generator-Setup-thumb.png?raw=true)](https://github.com/Inmarsat-itcloudservices/CAA-Ceres-Aurelia/blob/develop/ceres-generator/tutorials/screencasts/Ceres-Generator-Setup.webm?raw=true)
+[![step 2](https://github.com/Inmarsat-itcloudservices/CAA-Ceres-Aurelia/blob/develop/ceres-generator/tutorials/screencasts/Generate-Leto-thumb.png?raw=true)](https://github.com/Inmarsat-itcloudservices/CAA-Ceres-Aurelia/blob/develop/ceres-generator/tutorials/screencasts/Generate-Leto.webm?raw=true)
+[![step 3](https://github.com/Inmarsat-itcloudservices/CAA-Ceres-Aurelia/blob/develop/ceres-generator/tutorials/screencasts/Start-Leto-thumb.png?raw=true)](https://github.com/Inmarsat-itcloudservices/CAA-Ceres-Aurelia/blob/develop/ceres-generator/tutorials/screencasts/Start-Leto.webm?raw=true)
+[![step 4](https://github.com/Inmarsat-itcloudservices/CAA-Ceres-Aurelia/blob/develop/ceres-generator/tutorials/screencasts/View-Leto-thumb.png?raw=true)](https://github.com/Inmarsat-itcloudservices/CAA-Ceres-Aurelia/blob/develop/ceres-generator/tutorials/screencasts/View-Leto.webm?raw=true)
 
 ## Getting Started
 
@@ -23,16 +29,16 @@ npm install -g yo
 
 Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
 
-To install generator-ceres from npm, run:
+To install ceres-generator from npm, run:
 
 ```bash
-npm install -g generator-ceres
+npm link
 ```
 
 Finally, initiate the generator:
 
 ```bash
-yo ceres
+yo
 ```
 
 ### Getting To Know Yeoman
